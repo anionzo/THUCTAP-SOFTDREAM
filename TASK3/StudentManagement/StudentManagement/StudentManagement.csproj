@@ -43,11 +43,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\Discipline.cs" />
+    <Compile Include="Models\EnrolledCourses.cs" />
+    <Compile Include="Models\EnrolledCoursesStudentRegister.cs" />
+    <Compile Include="Models\Lecturers.cs" />
+    <Compile Include="Models\Semester.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Subject.cs" />
+    <Compile Include="Models\University.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\Dapper\" />
+    <Folder Include="Data\Files\" />
+    <Folder Include="Interfaces\IDate\" />
+    <Folder Include="Interfaces\IServices\" />
+    <Folder Include="Services\" />
+    <Folder Include="Utilities\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
