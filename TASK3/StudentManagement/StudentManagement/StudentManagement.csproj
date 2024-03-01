@@ -43,8 +43,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IData\ICUDData .cs" />
-    <Compile Include="Interfaces\IData\IReadData.cs" />
+    <Compile Include="Interfaces\IData\IAccountData.cs" />
+    <Compile Include="Interfaces\ICUDData .cs" />
+    <Compile Include="Interfaces\IData\IDepartmentData.cs" />
+    <Compile Include="Interfaces\IData\IEnrolledCoursesData.cs" />
+    <Compile Include="Interfaces\IData\IEnrolledCoursesStudentRegisterData.cs" />
+    <Compile Include="Interfaces\IData\ILecturersData.cs" />
+    <Compile Include="Interfaces\IReadData.cs" />
+    <Compile Include="Interfaces\IData\ISemesterData.cs" />
+    <Compile Include="Interfaces\IData\IStudentData.cs" />
+    <Compile Include="Interfaces\IData\ISubjectData.cs" />
+    <Compile Include="Interfaces\IData\IUniversityData.cs" />
+    <Compile Include="Interfaces\IServices\IAccountService.cs" />
+    <Compile Include="Interfaces\IServices\IDepartmentService.cs" />
+    <Compile Include="Interfaces\IServices\IDisciplineService.cs" />
+    <Compile Include="Interfaces\IServices\IEnrolledCoursesService.cs" />
+    <Compile Include="Interfaces\IServices\IEnrolledCoursesStudentRegisterService.cs" />
+    <Compile Include="Interfaces\IServices\ILecturersService.cs" />
+    <Compile Include="Interfaces\IServices\ISemesterService.cs" />
+    <Compile Include="Interfaces\IServices\IStudentService.cs" />
+    <Compile Include="Interfaces\IServices\ISubjectService.cs" />
+    <Compile Include="Interfaces\IServices\IUniversityService.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Discipline.cs" />
@@ -64,7 +83,6 @@
   <ItemGroup>
     <Folder Include="Data\Dapper\" />
     <Folder Include="Data\Files\" />
-    <Folder Include="Interfaces\IServices\" />
     <Folder Include="Services\" />
     <Folder Include="Utilities\" />
   </ItemGroup>

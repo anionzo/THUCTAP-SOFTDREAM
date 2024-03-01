@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Interfaces
 {
-    internal interface CUDInterface<T>
+    internal interface ICUDData<T>
     {
         bool Create(T entity);
         bool Delete(T entity);
