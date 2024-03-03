@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Interfaces.IData
 {
-    internal interface IEnrolledCoursesData: IReadData<EnrolledCourses>
+    internal interface IEnrolledCoursesData: IReadData<EnrolledCourses>, ICUDData<EnrolledCourses>
     {
     }
 }

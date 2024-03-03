@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Interfaces.IServices
 {
-    internal interface IUniversityService : ICUDData<University>
+    internal interface IUniversityService : IReadWrite<University>
     {
     }
 }

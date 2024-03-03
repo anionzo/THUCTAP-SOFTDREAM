@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Interfaces.IServices
 {
-    internal interface IEnrolledCoursesStudentRegisterService: ICUDData<EnrolledCoursesStudentRegister>
+    internal interface IEnrolledCoursesStudentRegisterService: IReadWrite<EnrolledCoursesStudentRegister>
     {
     }
 }
