@@ -1,5 +1,4 @@
 ﻿using StudentManagement.Interfaces.IData;
-using StudentManagement.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,29 +7,29 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Data.Dapper
 {
-    internal class StudentDapperData : IStudentData
-    {   
+    internal class SubjectDapperData : ISubjectData
+    {
         private readonly string _connectionString;
-        public StudentDapperData(string connectionString) { 
+        public SubjectDapperData(string connectionString)
+        {
             this._connectionString = connectionString;
         }
-        public bool Create(Student entity)
-        {
-            
-            throw new NotImplementedException();
-        }
-
-        public bool Delete(Student entity)
+        public bool Create(ISubjectData entity)
         {
             throw new NotImplementedException();
         }
 
-        public Student Get(object key)
+        public bool Delete(ISubjectData entity)
         {
             throw new NotImplementedException();
         }
 
-        public List<Student> GetAll()
+        public ISubjectData Get(object key)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<ISubjectData> GetAll()
         {
             throw new NotImplementedException();
         }
@@ -40,7 +39,7 @@ namespace StudentManagement.Data.Dapper
             throw new NotImplementedException();
         }
 
-        public bool Update(Student entity)
+        public bool Update(ISubjectData entity)
         {
             throw new NotImplementedException();
         }

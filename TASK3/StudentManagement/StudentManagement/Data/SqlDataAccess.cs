@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Data
 {
-    internal class SqlDataAccess<T> : IDataAccess<T>
+    internal class SqlDataAccess<T> :IDataAccess<T>
     {
         private readonly string _connectionString;
         public SqlDataAccess(string connectionString) { 
@@ -25,6 +25,7 @@ namespace StudentManagement.Data
                 try
                 {
                     connection.Execute(query, parameters);
+                  
                     return true;
                 }
                 catch (Exception ex)
@@ -37,7 +38,7 @@ namespace StudentManagement.Data
             
         }
 
-        IEnumerable IDataAccess<T>.ExecuteQuery(string query, params (string, object)[] parameters)
+        IEnumerable<T> IDataAccess<T>.ExecuteQuery(string query, params (string, object)[] parameters)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -47,9 +48,9 @@ namespace StudentManagement.Data
 
                     return connection.Query<T>(query, parameters);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    Console.WriteLine("Lỗi rồi: "+ ex);
+                    Console.WriteLine("Lỗi rồi: " + ex);
                     return Enumerable.Empty<T>();
                 }
             }

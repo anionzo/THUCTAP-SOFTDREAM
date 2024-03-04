@@ -10,7 +10,6 @@ namespace StudentManagement
     {
         static void Main(string[] args)
         {
-            string _connectionString = "Data Source=.;Integrated Security=True;Trust Server Certificate=True";
             Console.OutputEncoding = Encoding.UTF8;
 
         }

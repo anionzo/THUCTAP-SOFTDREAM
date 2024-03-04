@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Services
 {
-    internal class StudenService : IStudentService
+    internal class StudentService : IStudentService
     {
         private readonly IStudentData _studentData;
-        public StudenService (IStudentData studentData)
+        public StudentService (IStudentData studentData)
         {
             _studentData = studentData;
         }

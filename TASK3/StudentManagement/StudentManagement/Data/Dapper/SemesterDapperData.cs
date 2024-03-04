@@ -8,29 +8,29 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Data.Dapper
 {
-    internal class StudentDapperData : IStudentData
-    {   
+    internal class SemesterDapperData : ISemesterData
+    {
         private readonly string _connectionString;
-        public StudentDapperData(string connectionString) { 
+        public SemesterDapperData(string connectionString)
+        {
             this._connectionString = connectionString;
         }
-        public bool Create(Student entity)
-        {
-            
-            throw new NotImplementedException();
-        }
-
-        public bool Delete(Student entity)
+        public bool Create(Semester entity)
         {
             throw new NotImplementedException();
         }
 
-        public Student Get(object key)
+        public bool Delete(Semester entity)
         {
             throw new NotImplementedException();
         }
 
-        public List<Student> GetAll()
+        public Semester Get(object key)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Semester> GetAll()
         {
             throw new NotImplementedException();
         }
@@ -40,7 +40,7 @@ namespace StudentManagement.Data.Dapper
             throw new NotImplementedException();
         }
 
-        public bool Update(Student entity)
+        public bool Update(Semester entity)
         {
             throw new NotImplementedException();
         }
