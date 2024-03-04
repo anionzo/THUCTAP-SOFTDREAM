@@ -11,6 +11,8 @@ namespace StudentManagement.Data
     internal interface IDataAccess<T>
     {
         bool ExecuteNonQuery(string query, params (string, object)[] parameters);
-        IEnumerable<T> ExecuteQuery(string query, params (string, object)[] parameters);
+        //IEnumerable<T> ExecuteQuery(string query, params (string, object)[] parameters);
+        DataTable ExecuteQuery(string query, params (string, object)[] parameters);
+
     }
 }
