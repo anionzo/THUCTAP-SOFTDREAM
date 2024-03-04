@@ -81,6 +81,7 @@
     <Compile Include="Data\Dapper\SubjectDapperData.cs" />
     <Compile Include="Data\Dapper\UniversityDapperData.cs" />
     <Compile Include="Data\IDataAccess.cs" />
+    <Compile Include="Data\SqlDataAccess.cs" />
     <Compile Include="DependencyInstaller.cs" />
     <Compile Include="Interfaces\IData\IAccountData.cs" />
     <Compile Include="Interfaces\ICUDData .cs" />
