@@ -396,3 +396,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/TASK3/StudentManagement/StudentManagement/Data/SqlDataAccess.cs
