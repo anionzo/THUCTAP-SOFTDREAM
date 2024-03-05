@@ -10,7 +10,7 @@ namespace StudentManagement.Models
     {
         public string MSSV { get; set; }
         public string NameStudenr { get; set; }
-        public DateTime DayAdmission { get; set; }
+        public DateTime DayAdmission { get ; set; }
         public DateTime DateOfBirth { get; set; }
         public string Gender { get; set; }
         public string Education { get; set; }
@@ -22,5 +22,15 @@ namespace StudentManagement.Models
         public string PermanentAddress { get; set; }
         public string ImageAvatar { get; set; }
         public string Status { get; set; }
+
+        public string GetDayAdmissionDDMMYY()
+        {
+            // Sử dụng phương thức ToString với định dạng "ddMMyy" để lấy chuỗi ngày tháng năm
+            return DayAdmission.ToString("ddMMyy");
+        }
+        public string GetDateOfBirthDDMMYY()
+        {
+            return DateOfBirth.ToString("ddMMyy");
+        }
     }
 }
