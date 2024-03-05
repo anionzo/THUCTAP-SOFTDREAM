@@ -9,6 +9,6 @@ namespace StudentManagement.Interfaces.IData
 {
     internal interface IStudentData: IReadData<Student>, ICUDData<Student>
     {
-
+        double GetNumberSubjectRegister(string idSemester, string mssv);
     }
 }

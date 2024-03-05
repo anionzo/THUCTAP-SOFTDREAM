@@ -14,6 +14,7 @@ namespace StudentManagement.Data.Dapper
         {
             this._connectionString = connectionString;
         }
+
         public bool Create(Models.EnrolledCoursesStudentRegister entity)
         {
             throw new NotImplementedException();

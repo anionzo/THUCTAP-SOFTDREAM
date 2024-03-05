@@ -13,6 +13,7 @@ namespace StudentManagement.Data
         bool ExecuteNonQuery(string query, params (string, object)[] parameters);
         //IEnumerable<T> ExecuteQuery(string query, params (string, object)[] parameters);
         DataTable ExecuteQuery(string query, params (string, object)[] parameters);
-
+        
+        double ExecuteScalar(string query, params (string, object)[] parameters);
     }
 }

@@ -27,7 +27,15 @@ namespace StudentManagement.Utilities
                     PropertyInfo propertyInfo = typeof(T).GetProperty(dataColumn.ColumnName);
                     if (propertyInfo != null && row[dataColumn] != DBNull.Value)
                     {
-                        propertyInfo.SetValue(item, row[dataColumn]);
+                        //propertyInfo.SetValue(item, row[dataColumn]);
+                        if (propertyInfo.PropertyType == typeof(string))
+                        {
+                            propertyInfo.SetValue(item, row[dataColumn].ToString());
+                        }
+                        else
+                        {
+                            propertyInfo.SetValue(item, row[dataColumn]);
+                        }
                     }
                 }
                 list.Add(item);

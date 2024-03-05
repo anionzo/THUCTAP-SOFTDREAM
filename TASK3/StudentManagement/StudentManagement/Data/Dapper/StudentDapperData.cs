@@ -50,6 +50,15 @@ namespace StudentManagement.Data.Dapper
             return list;
         }
 
+
+        public double GetNumberSubjectRegister(string idSemester, string mssv)
+        {
+            string query = "SELECT dbo.GetNumberOfCoursesRegistered(@SemesterID, @StudentID)";
+            (string, object)[] parameters = { ("@SemesterID", idSemester), ("@StudentID", mssv) };
+
+            return _dataAccess.ExecuteScalar(query, parameters);
+        }
+
         public bool Save()
         {
             throw new NotImplementedException();

@@ -38,7 +38,7 @@ namespace StudentManagement.Data
                 }
             }
 
-            Console.WriteLine("Thao tác đã được thực hiện thành công.");
+            //Console.WriteLine("Thao tác đã được thực hiện thành công.");
             return true;
         }
 
@@ -63,8 +63,33 @@ namespace StudentManagement.Data
                 }
             }
 
-            Console.WriteLine("Truy vấn đã được thực hiện thành công.");
+            //Console.WriteLine("Truy vấn đã được thực hiện thành công.");
             return dataTable;
+        }
+
+        public double ExecuteScalar(string query, params (string, object)[] parameters)
+        {
+            using(SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    try
+                    {
+                        foreach (var parameter in parameters)
+                        {
+                            command.Parameters.AddWithValue(parameter.Item1, parameter.Item2);
+                        }
+                        connection.Open();
+                        double count = Convert.ToDouble(command.ExecuteScalar()) ;
+                        return count;
+                    }catch (Exception ex)
+                    {
+                        Console.WriteLine("Lỗi: " + ex.ToString());
+                        return 0;
+
+                    }
+                }
+            }
         }
     }
 }

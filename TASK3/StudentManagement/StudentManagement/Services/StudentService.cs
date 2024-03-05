@@ -34,6 +34,11 @@ namespace StudentManagement.Services
             HelperPrint.PrintTable(listStudent, listNameHeader);
         }
 
+        public void ShowNumberSubjectRegister(double number)
+        {
+            HelperColor.WriteLineWithColor("Số môn học sinh viên đăng ký là: " +number, ConsoleColor.Blue);
+        }
+
         public void ShowStudent(Student student)
         {
             List<string> listNameHeader = new List<string> {

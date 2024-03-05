@@ -9,7 +9,7 @@ namespace StudentManagement.Utilities
 {
     internal class HelperPrint
     {
-        public static void PrintTable<T>(List<T> dataList, List<string> nameHeader, int lengthName =15)
+        public static void PrintTable<T>(List<T> dataList, List<string> nameHeader, int length =15)
         {
             if (dataList == null || dataList.Count == 0)
             {
@@ -20,14 +20,14 @@ namespace StudentManagement.Utilities
             string header = null;
             foreach (var name in nameHeader)
             {
-                header += name.PadRight(lengthName);
-                columnWidths.Add(lengthName);
+                header += name.PadRight(length);
+                columnWidths.Add(length);
             }
 
             Console.WriteLine(header);
             foreach (var item in dataList)
             {
-                PrintRow(item, lengthName);
+                PrintRow(item, length);
             }
         }
         public static void PrintRow<T>(T row, int columnWidths)
