@@ -82,7 +82,7 @@ namespace StudentManagement
                             semesterService.ShowList(semesterDapper.GetAll());
                             Console.Write("Nhập số ID Học Kỳ cần kiêm tra số môn đăng ký: ");
                             string idSemester = Console.ReadLine();
-                            double numberRegister = dapperDapper.(idSemester, masv);
+                            double numberRegister = dapperDapper.GetNumberSubjectRegister(idSemester, masv);
                             studentService.ShowNumberSubjectRegister(numberRegister);
                             
                         }
