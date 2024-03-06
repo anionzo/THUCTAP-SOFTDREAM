@@ -102,9 +102,9 @@ VALUES ('SUB001', 'LEC001', 1, '2020-09-01', '2021-01-15', '11DHTH1', 50),
        ('SUB004', 'LEC002', 4, '2020-09-01', '2021-01-15', '11DHTH4', 55),
        ('SUB005', 'LEC001', 1, '2020-09-01', '2021-01-15', '11DHTH5', 40);
 
-INSERT INTO TBL_EnrolledCourses_Student_Register (MSSV, IDEnrolledCourses, CourseWorkScore, ExamScore, TotalScore) VALUES ('SV001', 1, 8.5, 9.0, 8.75);
-INSERT INTO TBL_EnrolledCourses_Student_Register (MSSV, IDEnrolledCourses, CourseWorkScore, ExamScore, TotalScore) VALUES ('SV002', 1, 7.8, 8.9, 8.35);
-INSERT INTO TBL_EnrolledCourses_Student_Register (MSSV, IDEnrolledCourses, CourseWorkScore, ExamScore, TotalScore) VALUES ('SV001', 2, 8.9, 9.5, 9.2);
+INSERT INTO TBL_EnrolledCourses_Student_Register (MSSV, IDEnrolledCourses, CourseWorkScore, ExamScore, TotalScore) VALUES ('SV001', 1, null, null, null);
+INSERT INTO TBL_EnrolledCourses_Student_Register (MSSV, IDEnrolledCourses, CourseWorkScore, ExamScore, TotalScore) VALUES ('SV002', 1, null, 8.9, 8.35);
+INSERT INTO TBL_EnrolledCourses_Student_Register (MSSV, IDEnrolledCourses, CourseWorkScore, ExamScore, TotalScore) VALUES ('SV001', 2, 8.9, null, 9.2);
 INSERT INTO TBL_EnrolledCourses_Student_Register (MSSV, IDEnrolledCourses, CourseWorkScore, ExamScore, TotalScore) VALUES('SV002', 2, 7.5, 8.0, 7.75);
 INSERT INTO TBL_EnrolledCourses_Student_Register (MSSV, IDEnrolledCourses, CourseWorkScore, ExamScore, TotalScore) VALUES('SV001', 3, 9.0, 9.8, 9.4);
 INSERT INTO TBL_EnrolledCourses_Student_Register (MSSV, IDEnrolledCourses, CourseWorkScore, ExamScore, TotalScore) VALUES('SV002', 3, 8.2, 8.7, 8.45);
@@ -130,7 +130,7 @@ INSERT INTO TBL_EnrolledCourses_Student_Register (MSSV, IDEnrolledCourses, Cours
 INSERT INTO TBL_EnrolledCourses_Student_Register (MSSV, IDEnrolledCourses, CourseWorkScore, ExamScore, TotalScore) VALUES('SV018', 1, 7.9, 8.2, NULL);
 INSERT INTO TBL_EnrolledCourses_Student_Register (MSSV, IDEnrolledCourses, CourseWorkScore, ExamScore, TotalScore) VALUES('SV019', 1, 8.5, 9.1, NULL);
 INSERT INTO TBL_EnrolledCourses_Student_Register (MSSV, IDEnrolledCourses, CourseWorkScore, ExamScore, TotalScore) VALUES('SV020', 1, 7.3, 8.0, NULL);
-INSERT INTO TBL_EnrolledCourses_Student_Register (MSSV, IDEnrolledCourses, CourseWorkScore, ExamScore, TotalScore) VALUES('SV021', 1, 8.8, 9.2, NULL);
+INSERT INTO TBL_EnrolledCourses_Student_Register (MSSV, IDEnrolledCourses, CourseWorkScore, ExamScore, TotalScore) VALUES('SV021', 1, null, null, NULL);
 INSERT INTO TBL_EnrolledCourses_Student_Register (MSSV, IDEnrolledCourses, CourseWorkScore, ExamScore, TotalScore) VALUES('SV022', 1, 7.6, 8.3, NULL);
 INSERT INTO TBL_EnrolledCourses_Student_Register (MSSV, IDEnrolledCourses, CourseWorkScore, ExamScore, TotalScore) VALUES('SV023', 1, 8.3, 8.7, NULL);
 INSERT INTO TBL_EnrolledCourses_Student_Register (MSSV, IDEnrolledCourses, CourseWorkScore, ExamScore, TotalScore) VALUES('SV024', 1, 7.2, 7.6, NULL);
