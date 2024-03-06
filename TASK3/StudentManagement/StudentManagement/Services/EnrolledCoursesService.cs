@@ -1,5 +1,6 @@
 ﻿using StudentManagement.Interfaces.IServices;
 using StudentManagement.Models;
+using StudentManagement.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,10 @@ namespace StudentManagement.Services
 
         public void ShowList(List<EnrolledCourses> list)
         {
-            throw new NotImplementedException();
+            List<string> listNameHeader = new List<string> {
+                            "ID","ID Subject","IDLecture","ID HK", "NgàyBD","Ngày KT","Lớp","Sĩ SỐ"
+                        };
+            HelperPrint.PrintTable(list, listNameHeader);
         }
     }
 }

@@ -74,7 +74,7 @@
     <Compile Include="Data\Dapper\DepartmentDapperData.cs" />
     <Compile Include="Data\Dapper\DisciplineDapperData.cs" />
     <Compile Include="Data\Dapper\EnrolledCoursesDapperData.cs" />
-    <Compile Include="Data\Dapper\EnrolledCoursesStudentRegister.cs" />
+    <Compile Include="Data\Dapper\EnrolledCoursesStudentRegisterDapperData.cs" />
     <Compile Include="Data\Dapper\LecturersDapperData.cs" />
     <Compile Include="Data\Dapper\SemesterDapperData.cs" />
     <Compile Include="Data\Dapper\StudentDapperData.cs" />
@@ -128,6 +128,9 @@
     <Compile Include="Services\StudentService.cs" />
     <Compile Include="Services\SubjectService.cs" />
     <Compile Include="Services\UniversityService.cs" />
+    <Compile Include="Utilities\Helper.cs" />
+    <Compile Include="Utilities\HelperColor.cs" />
+    <Compile Include="Utilities\HelperPrint.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -135,7 +138,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\Files\" />
-    <Folder Include="Utilities\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,5 +23,15 @@ namespace StudentManagement.Models
         public string PermanentAddress { get; set; }
         public string ImageAvatar { get; set; }
         public string Status { get; set; }
+
+        public string GetDayAdmissionFormat(string format)
+        {
+            return DayAdmission.ToString(format);
+        }
+
+        public string GetDateOfBirthFormat(string format)
+        {
+            return DateOfBirth.ToString(format);
+        }
     }
 }

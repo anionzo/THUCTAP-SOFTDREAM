@@ -9,5 +9,6 @@ namespace StudentManagement.Interfaces.IServices
 {
     internal interface ISemesterService : IReadWrite<Semester>
     {
+        
     }
 }
