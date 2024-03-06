@@ -3,6 +3,7 @@ using StudentManagement.Models;
 using StudentManagement.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,6 +51,11 @@ namespace StudentManagement.Data.Dapper
             return list;
         }
 
+        public DataTable GetEnrolledCourseInfoForStudent(string mssv)
+        {
+            string query = "select* from GetEnrolledCourseInfoForStudent(@StudentID)";
+            return _dataAccess.ExecuteQuery(query,("@StudentID", mssv));
+        }
 
         public double GetNumberSubjectRegister(string idSemester, string mssv)
         {

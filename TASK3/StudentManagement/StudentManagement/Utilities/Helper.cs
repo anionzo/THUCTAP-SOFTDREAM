@@ -43,23 +43,31 @@ namespace StudentManagement.Utilities
             return list;
         }
        
-        public static string ConvertDateString(string input) {
+        public static string ConvertDateString(object input) {
             string format = "dd/MM/yyyy hh:mm:ss tt";
             string outputFormat = "dd/MM/yyyy";
             bool checkDate = IsDateStringValid(input, format);
             if (checkDate == true)
             {
-                DateTime dateTime = DateTime.ParseExact(input, format, null);
+                DateTime dateTime = DateTime.ParseExact(input.ToString(), format, null);
                 input = dateTime.ToString(outputFormat);
             }
-            return input;
+            return input.ToString();
         }
-        public static bool IsDateStringValid(string input, string format)
+        public static bool IsDateStringValid(object input, string format)
         {
    
-            return DateTime.TryParseExact(input, format, null, System.Globalization.DateTimeStyles.None, out _);
+            return DateTime.TryParseExact(input.ToString(), format, null, System.Globalization.DateTimeStyles.None, out _);
         }
-     
 
+        public static bool IsInRange(decimal number)
+        {
+            return (number >= 0 && number <= 10);
+        }
+        public static bool IsDecimal(string input)
+        {
+            decimal result;
+            return decimal.TryParse(input, out result);
+        }
     }
 }

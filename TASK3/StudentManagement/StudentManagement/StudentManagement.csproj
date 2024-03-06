@@ -74,7 +74,7 @@
     <Compile Include="Data\Dapper\DepartmentDapperData.cs" />
     <Compile Include="Data\Dapper\DisciplineDapperData.cs" />
     <Compile Include="Data\Dapper\EnrolledCoursesDapperData.cs" />
-    <Compile Include="Data\Dapper\EnrolledCoursesStudentRegister.cs" />
+    <Compile Include="Data\Dapper\EnrolledCoursesStudentRegisterDapperData.cs" />
     <Compile Include="Data\Dapper\LecturersDapperData.cs" />
     <Compile Include="Data\Dapper\SemesterDapperData.cs" />
     <Compile Include="Data\Dapper\StudentDapperData.cs" />

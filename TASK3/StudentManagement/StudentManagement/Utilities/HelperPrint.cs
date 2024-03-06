@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 
 namespace StudentManagement.Utilities
 {
@@ -58,5 +60,33 @@ namespace StudentManagement.Utilities
 
             }
         }
+        public static void PrintDataTable(DataTable dataTable, List<string> nameHeader, int columnWidths = 15)
+        {
+            if (dataTable == null || dataTable.Rows.Count == 0)
+            {
+                Console.WriteLine("Empty table.");
+                return;
+            }
+
+            string header = null;
+            foreach (var name in nameHeader)
+            {
+                header += name.PadRight(columnWidths);
+            }
+            Console.WriteLine(header);
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                List<string> formattedValues = new List<string>();
+                foreach (var item in row.ItemArray)
+                {
+                    string itemString = Helper.ConvertDateString(item.ToString());
+                    formattedValues.Add(itemString.PadRight(columnWidths));
+                }
+                string rowString = string.Join("", formattedValues);
+                Console.WriteLine(rowString);
+            }
+        }
+
     }
 }
