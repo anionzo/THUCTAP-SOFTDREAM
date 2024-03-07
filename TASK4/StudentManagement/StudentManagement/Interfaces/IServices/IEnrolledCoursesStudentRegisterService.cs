@@ -14,6 +14,7 @@ namespace StudentManagement.Interfaces.IServices
     {
         void ShowListshowsubjectScoreboard(List<EnrolledCoursesStudentRegister> list);
         void ShowListStudent_Fail_Pass(DataTable dataTable);
+        void Update(EnrolledCoursesStudentRegister emmt);
 
     }
 }

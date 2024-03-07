@@ -1,10 +1,14 @@
-﻿using StudentManagement.Data.Dapper;
+﻿using Castle.Windsor;
+using Castle.Windsor.Installer;
+using StudentManagement.Data.Dapper;
+using StudentManagement.Interfaces.IData;
 using StudentManagement.Interfaces.IServices;
 using StudentManagement.Models;
 using StudentManagement.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -14,12 +18,12 @@ namespace StudentManagement.Services
 {
     internal class EnrolledCoursesStudentRegisterService : IEnrolledCoursesStudentRegisterService
     {
-        string connectionString = "Data Source=.;Initial Catalog=QUANLY_SINHVIEN;Integrated Security=True";
-
-        EnrolledCoursesStudentRegisterDapperData enrolledCoursesStudentRegisterDapperData;
+        WindsorContainer container = new WindsorContainer();
+        IEnrolledCoursesStudentRegisterData enrolledCoursesStudentRegisterDapperData;
         public EnrolledCoursesStudentRegisterService()
         {
-            enrolledCoursesStudentRegisterDapperData = new EnrolledCoursesStudentRegisterDapperData(connectionString);
+            container.Install(FromAssembly.This());
+            enrolledCoursesStudentRegisterDapperData = container.Resolve<IEnrolledCoursesStudentRegisterData>();
         }
         public void Add(EnrolledCoursesStudentRegister emmt)
         {
@@ -45,6 +49,11 @@ namespace StudentManagement.Services
                             "Mssv","Mã DP ĐK","Điểm QT","Điểm thi", "Điểm tổng","Kết Quả"
                         };
             HelperPrint.PrintDataTable(dataTable, listNameHeader);
+        }
+
+        public void Update(EnrolledCoursesStudentRegister emmt)
+        {
+            enrolledCoursesStudentRegisterDapperData.Update(emmt);
         }
     }
 }
