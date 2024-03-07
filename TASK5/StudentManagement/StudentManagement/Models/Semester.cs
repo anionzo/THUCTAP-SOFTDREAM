@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Models
 {
-    internal class Semester
+    public class Semester
     {
         public virtual string IDSemester { get; set; }
         public virtual string NameSemester { get; set; }

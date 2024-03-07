@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-configuration xmlns = "urn:nhibernate-configuration-2.2"
+						 assembly="StudentManagement" namespace="StudentManagement.Models">
+
+	<class name="Student" table="TBL_Student">
+		<id name="MSSV">
+			<generator class="native"/>
+		</id>
+		<property name="NameStudenr"/>
+		<property name="DayAdmission"/>
+		<property name="DateOfBirth"/>
+		<property name="Gender"/>
+		<property name="Education"/>
+		<property name="PhoneNumber"/>
+		<property name="CCCD"/>
+		<property name="IDDiscipline"/>
+		<property name="Ethnicity"/>
+		<property name="Religion"/>
+		<property name="PermanentAddress"/>
+		<property name="ImageAvatar"/>
+		<property name="Status"/>
+	</class>
+
+</hibernate-configuration>

@@ -21,7 +21,12 @@ namespace StudentManagement
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
+
+          
+            
             Menu();
+
+
         }
         public static void Menu()
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Models
 {
-    internal class EnrolledCourses
+    public class EnrolledCourses
     {
         public virtual int IDEnrolledCourses { get; set; }
         public virtual string IDSubject { get; set; }

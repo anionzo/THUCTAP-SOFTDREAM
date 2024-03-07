@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Models
 {
-    internal class University
+    public class University
     {
         // Trường học
         public virtual string IDUniversity { get; set; }

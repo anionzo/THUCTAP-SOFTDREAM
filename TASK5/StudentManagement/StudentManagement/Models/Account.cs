@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Models
 {
-    internal class Account
+    public class Account
     {
         public virtual int IDAcount { get; set; }
         public virtual string UserName { get; set; }

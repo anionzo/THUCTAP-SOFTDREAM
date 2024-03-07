@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-configuration xmlns = "urn:nhibernate-configuration-2.2"
+						 assembly="StudentManagement" namespace="StudentManagement.Models">
+
+	<class name="Subject" table="TBL_Subject">
+		<id name="IDSubject">
+			<generator class="native"/>
+		</id>
+		<property name="NameSubject"/>
+		<property name="IDDepartment"/>
+		<property name="Credits"/>
+		<property name="CourseworkWeight"/>
+		<property name="CourseType"/>
+	</class>
+
+</hibernate-configuration>
