@@ -8,13 +8,13 @@ namespace StudentManagement.Models
 {
     internal class EnrolledCourses
     {
-        public int IDEnrolledCourses { get; set; }
-        public string IDSubject { get; set; }
-        public string IDLecturer { get; set; }
-        public string IDSemester { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public string ExpectedClass {get; set;}
-        public string Capacity { get; set;}
+        public virtual int IDEnrolledCourses { get; set; }
+        public virtual string IDSubject { get; set; }
+        public virtual string IDLecturer { get; set; }
+        public virtual string IDSemester { get; set; }
+        public virtual DateTime StartDate { get; set; }
+        public virtual DateTime EndDate { get; set; }
+        public virtual string ExpectedClass { get; set; }
+        public virtual string Capacity { get; set; }
     }
 }

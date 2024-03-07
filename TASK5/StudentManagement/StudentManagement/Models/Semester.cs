@@ -8,9 +8,9 @@ namespace StudentManagement.Models
 {
     internal class Semester
     {
-        public string IDSemester { get; set; }
-        public string NameSemester { get; set; }
-        public int YearStart { get; set; }
-        public int YearEnd { get; set; }
+        public virtual string IDSemester { get; set; }
+        public virtual string NameSemester { get; set; }
+        public virtual int YearStart { get; set; }
+        public virtual int YearEnd { get; set; }
     }
 }

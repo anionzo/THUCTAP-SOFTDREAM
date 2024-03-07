@@ -9,8 +9,8 @@ namespace StudentManagement.Models
     internal class Discipline
     {
         // bộ môn
-        public string IDDiscipline { get; set; }
-        public string NameDiscipline { get; set; }
-        public string IDDepartment { get; set; }
+        public virtual string IDDiscipline { get; set; }
+        public virtual string NameDiscipline { get; set; }
+        public virtual string IDDepartment { get; set; }
     }
 }

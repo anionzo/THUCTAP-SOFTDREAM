@@ -8,11 +8,11 @@ namespace StudentManagement.Models
 {
     internal class EnrolledCoursesStudentRegister
     {
-        public string MSSV { get; set; }
-        public int IDEnrolledCourses { get; set; }
-        public decimal CourseWorkScore { get; set; }
-        public decimal ExamScore { get; set; }
-        public decimal TotalScore { get; set; }
+        public virtual string MSSV { get; set; }
+        public virtual int IDEnrolledCourses { get; set; }
+        public virtual decimal CourseWorkScore { get; set; }
+        public virtual decimal ExamScore { get; set; }
+        public virtual decimal TotalScore { get; set; }
 
     }
 }

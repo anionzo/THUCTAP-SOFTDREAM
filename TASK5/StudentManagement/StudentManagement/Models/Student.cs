@@ -9,20 +9,20 @@ namespace StudentManagement.Models
 {
     internal class Student
     {
-        public string MSSV { get; set; }
-        public string NameStudenr { get; set; }
-        public DateTime DayAdmission { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public string Gender { get; set; }
-        public string Education { get; set; }
-        public string PhoneNumber { get; set; }
-        public string CCCD { get; set; }
-        public string IDDiscipline { get; set; }
-        public string Ethnicity { get; set; }
-        public string Religion { get; set; }
-        public string PermanentAddress { get; set; }
-        public string ImageAvatar { get; set; }
-        public string Status { get; set; }
+        public virtual string MSSV { get; set; }
+        public virtual string NameStudenr { get; set; }
+        public virtual DateTime DayAdmission { get; set; }
+        public virtual DateTime DateOfBirth { get; set; }
+        public virtual string Gender { get; set; }
+        public virtual string Education { get; set; }
+        public virtual string PhoneNumber { get; set; }
+        public virtual string CCCD { get; set; }
+        public virtual string IDDiscipline { get; set; }
+        public virtual string Ethnicity { get; set; }
+        public virtual string Religion { get; set; }
+        public virtual string PermanentAddress { get; set; }
+        public virtual string ImageAvatar { get; set; }
+        public virtual string Status { get; set; }
 
         public string GetDayAdmissionFormat(string format)
         {

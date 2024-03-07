@@ -9,10 +9,10 @@ namespace StudentManagement.Models
     internal class Department
     {
         // khoa
-        public string IDDepartment { get; set; }
-        public string NameDepartment { get; set; }
-        public string PhoneNumber { get; set; }
-        public string IDUniversity { get; set; }
-        public string Email { get; set; }
+        public virtual string IDDepartment { get; set; }
+        public virtual string NameDepartment { get; set; }
+        public virtual string PhoneNumber { get; set; }
+        public virtual string IDUniversity { get; set; }
+        public virtual string Email { get; set; }
     }
 }
