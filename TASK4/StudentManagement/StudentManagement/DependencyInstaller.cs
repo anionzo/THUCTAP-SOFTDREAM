@@ -13,18 +13,43 @@ using System.Threading.Tasks;
 
 namespace StudentManagement
 {
-    //internal class DependencyInstaller : IWindsorInstaller
-    //{
-    //    //private static string connectionString = "Data Source=.;Integrated Security=True;Trust Server Certificate=True";
+    public class DependencyInstaller : IWindsorInstaller
+    {
+        string connectionString = "Data Source=.;Initial Catalog=QUANLY_SINHVIEN;Integrated Security=True";
 
-    //    //public void Install(IWindsorContainer container, IConfigurationStore store)
-    //    //{
-    //    //    container.Register(Component.For<IStudentService>().ImplementedBy<StudentService>(),
-    //    //                        Component.For<IStudentData>().ImplementedBy<StudentDapperData>().DependsOn(Dependency.OnValue("connectionString", connectionString))
-    //    //                        );
-    //    //    container.Register(Component.For<IStudentService>().ImplementedBy<StudentService>(),
-    //    //              Component.For<IStudentData>().ImplementedBy<StudentDapperData>().DependsOn(Dependency.OnValue("connectionString", connectionString))
-    //    //              );
-    //    //}
-    //}
+
+        public void Install(IWindsorContainer container, IConfigurationStore store)
+        {
+            container.Register(Component.For<IStudentService>().ImplementedBy<StudentService>(),
+                Component.For<IStudentData>().ImplementedBy<StudentDapperData>().DependsOn(Dependency.OnValue("connectionString", connectionString))
+            );
+            container.Register(Component.For<IAccountService>().ImplementedBy<AccountService>(),
+                Component.For<IAccountData>().ImplementedBy<AccountDapperData>().DependsOn(Dependency.OnValue("connectionString", connectionString))
+            );
+            container.Register(Component.For<IDepartmentService>().ImplementedBy<DepartmentService>(),
+                Component.For<IDepartmentData>().ImplementedBy<DepartmentDapperData>().DependsOn(Dependency.OnValue("connectionString", connectionString))
+            );
+            container.Register(Component.For<IDisciplineService>().ImplementedBy<DisciplineService>(),
+                Component.For<IDisciplineData>().ImplementedBy<DisciplineDapperData>().DependsOn(Dependency.OnValue("connectionString", connectionString))
+            );
+            container.Register(Component.For<IEnrolledCoursesService>().ImplementedBy<EnrolledCoursesService>(),
+                Component.For<IEnrolledCoursesData>().ImplementedBy<EnrolledCoursesDapperData>().DependsOn(Dependency.OnValue("connectionString", connectionString))
+            );
+            container.Register(Component.For<IEnrolledCoursesStudentRegisterService>().ImplementedBy<EnrolledCoursesStudentRegisterService>(),
+                Component.For<IEnrolledCoursesStudentRegisterData>().ImplementedBy<EnrolledCoursesStudentRegisterDapperData>().DependsOn(Dependency.OnValue("connectionString", connectionString))
+            );
+            container.Register(Component.For<ILecturersService>().ImplementedBy<LecturersService>(),
+                Component.For<ILecturersData>().ImplementedBy<LecturersDapperData>().DependsOn(Dependency.OnValue("connectionString", connectionString))
+            );
+            container.Register(Component.For<ISemesterService>().ImplementedBy<SemesterService>(),
+                Component.For<ISemesterData>().ImplementedBy<SemesterDapperData>().DependsOn(Dependency.OnValue("connectionString", connectionString))
+            );
+            container.Register(Component.For<ISubjectService>().ImplementedBy<SubjectService>(),
+                Component.For<ISubjectData>().ImplementedBy<SubjectDapperData>().DependsOn(Dependency.OnValue("connectionString", connectionString))
+            );
+            container.Register(Component.For<IUniversityService>().ImplementedBy<UniversityService>(),
+                Component.For<IUniversityData>().ImplementedBy<UniversityDapperData>().DependsOn(Dependency.OnValue("connectionString", connectionString))
+            );
+        }
+    }
 }
