@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-configuration xmlns = "urn:nhibernate-configuration-2.2"
+						 assembly="StudentManagement" namespace="StudentManagement.Models">
+
+	<class name="EnrolledCoursesStudentRegister" table="TBL_EnrolledCoursesStudentRegister">
+		<property name="MSSV"/>
+		<property name="IDEnrolledCourses"/>
+		<property name="CourseWorkScore"/>
+		<property name="ExamScore"/>
+		<property name="TotalScore"/>
+	</class>
+
+</hibernate-configuration>

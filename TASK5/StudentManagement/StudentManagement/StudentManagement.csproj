@@ -147,7 +147,10 @@
     <Compile Include="Utilities\HelperPrint.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\Mappings\Subject.hbn.xml" />
+    <Content Include="Models\Mappings\EnrolledCourses.hbm.xml" />
+    <Content Include="Models\Mappings\EnrolledCoursesStudentRegister.hbm.xml" />
+    <Content Include="Models\Mappings\Semester.hbm.xml" />
+    <Content Include="Models\Mappings\Subject.hbm.xml" />
     <None Include="App.config" />
     <Content Include="Models\Mappings\Student.hbm.xml" />
     <None Include="packages.config" />

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-configuration xmlns = "urn:nhibernate-configuration-2.2"
+						 assembly="StudentManagement" namespace="StudentManagement.Models">
+
+	<class name="EnrolledCourses" table="TBL_EnrolledCourses">
+		<id name="IDEnrolledCourses">
+			<generator class="native"/>
+		</id>
+		<property name="IDSubject"/>
+		<property name="IDLecturer"/>
+		<property name="IDSemester"/>
+		<property name="StartDate"/>
+		<property name="EndDate"/>
+		<property name="ExpectedClass"/>
+		<property name="Capacity"/>
+	</class>
+
+</hibernate-configuration>
