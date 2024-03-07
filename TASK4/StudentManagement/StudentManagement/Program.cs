@@ -26,9 +26,7 @@ namespace StudentManagement
         public static void Menu()
         {
             int chucNang = -1;
-            //string connectionString = "Data Source=.;Initial Catalog=QUANLY_SINHVIEN;Integrated Security=True;Trust Server Certificate=True";
-            string connectionString = "Data Source=.;Initial Catalog=QUANLY_SINHVIEN;Integrated Security=True";
-            List<string> listNameHeader;
+            List<string> listNameHeader = new List<string>();
             string idSemester =  string.Empty;
             int idEnrolledCourses = 0;
             List<EnrolledCourses> enrolledCourses;
@@ -187,7 +185,7 @@ namespace StudentManagement
 
                                             eCSR.CourseWorkScore = decimal.Parse(courseWorkScore);
                                             eCSR.ExamScore = decimal.Parse(examScore);
-                                            enrolledCoursesStudentRegisterService.Add(eCSR);
+                                            enrolledCoursesStudentRegisterService.Update(eCSR);
                                             HelperColor.WriteLineWithColor("Chỉnh sửa thành công!", ConsoleColor.Green);
                                         }
                                         else
