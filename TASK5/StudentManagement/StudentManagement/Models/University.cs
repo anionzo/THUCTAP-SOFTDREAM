@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Models
 {
-    internal class University
+    public class University
     {
         // Trường học
         public virtual string IDUniversity { get; set; }
         public virtual string NameUniversity { get; set; }
         public virtual string Address { get; set; }
-        public virtual string PhoneNumber { get; set; }
+        public virtual string PhoneNumber { get; set; }    
         public virtual string Email { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Models
 {
-    internal class Discipline
+    public class Discipline
     {
         // bộ môn
         public virtual string IDDiscipline { get; set; }

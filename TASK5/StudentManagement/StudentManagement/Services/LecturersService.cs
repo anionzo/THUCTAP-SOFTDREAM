@@ -10,12 +10,12 @@ namespace StudentManagement.Services
 {
     internal class LecturersService : ILecturersService
     {
-        public void Add(Lecturers emmt)
+        public void Add(Lecturer emmt)
         {
             throw new NotImplementedException();
         }
 
-        public void ShowList(List<Lecturers> list)
+        public void ShowList(List<Lecturer> list)
         {
             throw new NotImplementedException();
         }

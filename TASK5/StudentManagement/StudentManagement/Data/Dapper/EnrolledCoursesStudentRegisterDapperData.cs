@@ -1,5 +1,6 @@
 ﻿using StudentManagement.Interfaces.IData;
 using StudentManagement.Models;
+using StudentManagement.Models.DapperModels;
 using StudentManagement.Utilities;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,12 @@ namespace StudentManagement.Data.Dapper
     {
         private readonly string _connectionString;
         SqlDataAccess<EnrolledCoursesStudentRegister> _dataAccess;
+        SqlDataDapperAccess<EnrolledCoursesStudentRegister> _dataDapperAccess;
         public EnrolledCoursesStudentRegisterDapperData(string connectionString) {
         
             this._connectionString = connectionString;
             _dataAccess = new SqlDataAccess<EnrolledCoursesStudentRegister>(connectionString);
+            _dataDapperAccess = new SqlDataDapperAccess<EnrolledCoursesStudentRegister> (_connectionString);
 
         }
 
@@ -34,37 +37,50 @@ namespace StudentManagement.Data.Dapper
 
         public EnrolledCoursesStudentRegister Get(object key)
         {
+            //string query = $"select * from TBL_EnrolledCourses_Student_Register where IDEnrolledCourses = {key}";
+            //var dataTable = _dataAccess.ExecuteQuery(query);
+            //if (dataTable.Rows.Count > 0)
+            //{
+            //    var data = Helper.ConvertDataTableToList<EnrolledCoursesStudentRegister>(dataTable);
+            //    return data[0];
+            //}
+            //return null;
+
             string query = $"select * from TBL_EnrolledCourses_Student_Register where IDEnrolledCourses = {key}";
-            var dataTable = _dataAccess.ExecuteQuery(query);
-            if (dataTable.Rows.Count > 0)
-            {
-                var data = Helper.ConvertDataTableToList<EnrolledCoursesStudentRegister>(dataTable);
-                return data[0];
-            }
-            return null;
+            return _dataDapperAccess.Query(query).FirstOrDefault();
         }
 
         public List<EnrolledCoursesStudentRegister> GetAll()
         {
+            //string query = $"select * from TBL_EnrolledCourses_Student_Register";
+            //var dataTable = _dataAccess.ExecuteQuery(query);
+            //if(dataTable.Rows.Count > 0)
+            //{
+            //    return Helper.ConvertDataTableToList<EnrolledCoursesStudentRegister>(dataTable);
+            //}
+            //return null;
+            
             string query = $"select * from TBL_EnrolledCourses_Student_Register";
-            var dataTable = _dataAccess.ExecuteQuery(query);
-            if(dataTable.Rows.Count > 0)
-            {
-                return Helper.ConvertDataTableToList<EnrolledCoursesStudentRegister>(dataTable);
-            }
-            return null;
+            return _dataDapperAccess.Query(query);
 
         }
 
         public DataTable GetListStudent_Fail_Pass(int IDEnrolledCourse)
         {
+            //string query = $"select * from GetSubjectFailPass({IDEnrolledCourse})";
+            //var dataTable = _dataAccess.ExecuteQuery(query);
+            //if(dataTable.Rows.Count > 0)
+            //{
+            //    return dataTable;
+            //}
+            //return null;
+
             string query = $"select * from GetSubjectFailPass({IDEnrolledCourse})";
-            var dataTable = _dataAccess.ExecuteQuery(query);
-            if(dataTable.Rows.Count > 0)
-            {
-                return dataTable;
-            }
-            return null;
+            SqlDataDapperAccess<StudentFailPass> sqlData = new SqlDataDapperAccess<StudentFailPass>(_connectionString);
+            DataTable dataTable = new DataTable();
+            dataTable = Helper.ConvertListToDataTable(sqlData.Query(query));
+
+            return dataTable;
         }
 
         public bool Save()
@@ -74,14 +90,21 @@ namespace StudentManagement.Data.Dapper
 
         public bool Update(EnrolledCoursesStudentRegister entity)
         {
+            //string query = "UPDATE TBL_EnrolledCourses_Student_Register SET CourseWorkScore = @CourseWorkScore, ExamScore= @ExamScore WHERE MSSV = @MSSV AND IDEnrolledCourses = @IDEnrolledCourses";
+            //(string, object)[] parameters = { ("@CourseWorkScore", entity.CourseWorkScore),
+            //                                  ("@ExamScore", entity.ExamScore), 
+            //                                  ("@MSSV", entity.MSSV), 
+            //                                  ("@IDEnrolledCourses", entity.IDEnrolledCourses) };
+            //var result = _dataAccess.ExecuteNonQuery(query,parameters);
+            //return result;
+
             string query = "UPDATE TBL_EnrolledCourses_Student_Register SET CourseWorkScore = @CourseWorkScore, ExamScore= @ExamScore WHERE MSSV = @MSSV AND IDEnrolledCourses = @IDEnrolledCourses";
             (string, object)[] parameters = { ("@CourseWorkScore", entity.CourseWorkScore),
-                                              ("@ExamScore", entity.ExamScore), 
-                                              ("@MSSV", entity.MSSV), 
+                                              ("@ExamScore", entity.ExamScore),
+                                              ("@MSSV", entity.MSSV),
                                               ("@IDEnrolledCourses", entity.IDEnrolledCourses) };
-            var result = _dataAccess.ExecuteNonQuery(query,parameters);
+            var result = _dataDapperAccess.Excute(query,parameters);
             return result;
-
         }
     }
 }

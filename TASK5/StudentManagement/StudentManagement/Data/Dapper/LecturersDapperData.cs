@@ -15,22 +15,22 @@ namespace StudentManagement.Data.Dapper
         {
             this._connectionString = connectionString;
         }
-        public bool Create(Lecturers entity)
+        public bool Create(Lecturer entity)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(Lecturers entity)
+        public bool Delete(Lecturer entity)
         {
             throw new NotImplementedException();
         }
 
-        public Lecturers Get(object key)
+        public Lecturer Get(object key)
         {
             throw new NotImplementedException();
         }
 
-        public List<Lecturers> GetAll()
+        public List<Lecturer> GetAll()
         {
             throw new NotImplementedException();
         }
@@ -40,7 +40,7 @@ namespace StudentManagement.Data.Dapper
             throw new NotImplementedException();
         }
 
-        public bool Update(Lecturers entity)
+        public bool Update(Lecturer entity)
         {
             throw new NotImplementedException();
         }

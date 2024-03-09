@@ -21,13 +21,19 @@ namespace StudentManagement
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
+
+          
+            
             Menu();
+
+            Console.ReadLine();
+
         }
         public static void Menu()
         {
             int chucNang = -1;
             List<string> listNameHeader = new List<string>();
-            string idSemester =  string.Empty;
+            int idSemester =  0;
             int idEnrolledCourses = 0;
             List<EnrolledCourses> enrolledCourses;
             Student student = new Student();
@@ -108,8 +114,8 @@ namespace StudentManagement
                                 {
                                     semesterService.ShowList(semesterDapper.GetAll());
                                     Console.Write("Nhập số ID Học Kỳ cần kiêm tra số môn đăng ký: ");
-                                    idSemester = Console.ReadLine();
-                                    double numberRegister = studentDapper.GetNumberSubjectRegister(idSemester, masv);
+                                    idSemester = int.Parse(Console.ReadLine());    
+                                    double numberRegister = studentDapper.GetNumberSubjectRegister(idSemester.ToString(), masv);
                                     studentService.ShowNumberSubjectRegister(numberRegister);
                                 }
                                 else
@@ -149,7 +155,7 @@ namespace StudentManagement
                                 // Hiển thị môn cần nhập điểm
                                 semesterService.ShowList(semesterDapper.GetAll());
                                 Console.Write("Nhập số ID Học Kỳ cần nhập điển: ");
-                                idSemester = Console.ReadLine();
+                                idSemester = int.Parse(Console.ReadLine());
                                 // lấy TBL_EnrolledCourses
                                 enrolledCourses = enrolledCoursesDapperData.GetAll().Where(x => x.IDSemester == idSemester).ToList();
                                 if (enrolledCourses.Count > 0)
@@ -213,7 +219,7 @@ namespace StudentManagement
                             // Hiển thị môn cần nhập điểm
                             semesterService.ShowList(semesterDapper.GetAll());
                             Console.Write("Nhập số ID Học Kỳ cần nhập điển: ");
-                            idSemester = Console.ReadLine();
+                            idSemester = int.Parse(Console.ReadLine());
                             // lấy TBL_EnrolledCourses
                             enrolledCourses = enrolledCoursesDapperData.GetAll().Where(x => x.IDSemester == idSemester).ToList();
 
@@ -260,7 +266,7 @@ namespace StudentManagement
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Lỗi cmnr: " + ex.Message);
+                Console.WriteLine("Lỗi --: " + ex.Message);
             }
             finally
             {
