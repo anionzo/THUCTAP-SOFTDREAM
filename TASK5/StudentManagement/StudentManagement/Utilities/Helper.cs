@@ -42,7 +42,32 @@ namespace StudentManagement.Utilities
             }
             return list;
         }
-       
+        public static DataTable ConvertListToDataTable<T>(List<T> list)
+        {
+            DataTable dataTable = new DataTable();
+
+            if (list.Count > 0)
+            {
+                var properties = typeof(T).GetProperties();
+
+                foreach (var property in properties)
+                {
+                    dataTable.Columns.Add(property.Name, Nullable.GetUnderlyingType(property.PropertyType) ?? property.PropertyType);
+                }
+
+                foreach (var item in list)
+                {
+                    DataRow row = dataTable.NewRow();
+                    foreach (var property in properties)
+                    {
+                        row[property.Name] = property.GetValue(item) ?? DBNull.Value;
+                    }
+                    dataTable.Rows.Add(row);
+                }
+            }
+
+            return dataTable;
+        }
         public static string ConvertDateString(object input) {
             string format = "dd/MM/yyyy hh:mm:ss tt";
             string outputFormat = "dd/MM/yyyy";

@@ -14,10 +14,12 @@ namespace StudentManagement.Data.Dapper
     {
         private readonly string _connectionString;
         private SqlDataAccess<Semester> _dataAccess;
+        public SqlDataDapperAccess<Semester> _sqlDataDapperAccess;
         public SemesterDapperData(string connectionString)
         {
             this._connectionString = connectionString;
             _dataAccess = new SqlDataAccess<Semester>(_connectionString);
+            _sqlDataDapperAccess = new SqlDataDapperAccess<Semester>(_connectionString);
         }
         public bool Create(Semester entity)
         {
@@ -31,24 +33,32 @@ namespace StudentManagement.Data.Dapper
 
         public Semester Get(object key)
         {
+            //string query = $"select * from TBL_Semester where IDSemester = {key}";
+            //var dataTable = _dataAccess.ExecuteQuery(query);
+            //if(dataTable.Rows.Count == 0)
+            //{
+            //    return null;
+            //}
+            //var listSemester = Helper.ConvertDataTableToList<Semester>(dataTable);
+            //return listSemester[0];
+
             string query = $"select * from TBL_Semester where IDSemester = {key}";
-            var dataTable = _dataAccess.ExecuteQuery(query);
-            if(dataTable.Rows.Count == 0)
-            {
-                return null;
-            }
-            var listSemester = Helper.ConvertDataTableToList<Semester>(dataTable);
-            return listSemester[0];
+            return _sqlDataDapperAccess.Query(query).FirstOrDefault();
+
         }
 
         public List<Semester> GetAll()
         {
+            //string query = "select * from TBL_Semester";
+            //var dataTable = _dataAccess.ExecuteQuery(query);
+            //var listSemester = Helper.ConvertDataTableToList<Semester>(dataTable);
+            //return listSemester;
+
             string query = "select * from TBL_Semester";
-            var dataTable = _dataAccess.ExecuteQuery(query);
-            var listSemester = Helper.ConvertDataTableToList<Semester>(dataTable);
-            return listSemester;
+            return _sqlDataDapperAccess.Query(query);
+
         }
-            
+
         public bool Save()
         {
             throw new NotImplementedException();

@@ -108,7 +108,8 @@ CREATE TABLE TBL_EnrolledCourses_Student_Register(
 	IDEnrolledCourses INT,
 	CourseWorkScore DECIMAL(4,2), -- điểm quá trình 
 	ExamScore DECIMAL(4,2), ----diểm thi
-	TotalScore DECIMAL(4,2) ---- điểm tổng
+	TotalScore DECIMAL(4,2), ---- điểm tổng,
+	primary key (MSSV,IDEnrolledCourses)
 )
 GO
 

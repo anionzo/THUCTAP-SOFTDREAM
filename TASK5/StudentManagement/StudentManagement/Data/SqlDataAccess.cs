@@ -48,6 +48,7 @@ namespace StudentManagement.Data
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
+               
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     foreach (var parameter in parameters)

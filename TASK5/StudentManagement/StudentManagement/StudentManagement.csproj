@@ -57,8 +57,14 @@
     <Reference Include="Castle.Windsor, Version=6.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Windsor.6.0.0\lib\net462\Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.1.35\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="Iesi.Collections, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\Iesi.Collections.4.0.4\lib\net461\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate, Version=5.5.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\NHibernate.5.5.0\lib\net48\NHibernate.dll</HintPath>
@@ -95,7 +101,13 @@
     <Compile Include="Data\Dapper\SubjectDapperData.cs" />
     <Compile Include="Data\Dapper\UniversityDapperData.cs" />
     <Compile Include="Data\IDataAccess.cs" />
+    <Compile Include="Data\NHibernateSession.cs" />
+    <Compile Include="Data\NHibernates\EnrolledCoursesNHibernateData.cs" />
+    <Compile Include="Data\NHibernates\EnrolledCoursesStudentRegisterNHibernateData.cs" />
+    <Compile Include="Data\NHibernates\SemesterNHibernateData.cs" />
+    <Compile Include="Data\NHibernates\StudentNHibernateData.cs" />
     <Compile Include="Data\SqlDataAccess.cs" />
+    <Compile Include="Data\SqlDataDapperAccess.cs" />
     <Compile Include="DependencyInstaller.cs" />
     <Compile Include="Interfaces\IData\IAccountData.cs" />
     <Compile Include="Interfaces\ICUDData .cs" />
@@ -121,11 +133,13 @@
     <Compile Include="Interfaces\IServices\ISubjectService.cs" />
     <Compile Include="Interfaces\IServices\IUniversityService.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\DapperModels\EnrolledCourseInfoForStudent.cs" />
+    <Compile Include="Models\DapperModels\StudentFailPass.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Discipline.cs" />
     <Compile Include="Models\EnrolledCourses.cs" />
     <Compile Include="Models\EnrolledCoursesStudentRegister.cs" />
-    <Compile Include="Models\Lecturers.cs" />
+    <Compile Include="Models\Lecturer.cs" />
     <Compile Include="Models\Semester.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Subject.cs" />
@@ -147,10 +161,16 @@
     <Compile Include="Utilities\HelperPrint.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="hibernate.cfg.xml" />
+    <Content Include="Models\Mappings\Account.hbm.xml" />
+    <Content Include="Models\Mappings\Department.hbm.xml" />
+    <Content Include="Models\Mappings\Discipline.hbm.xml" />
     <Content Include="Models\Mappings\EnrolledCourses.hbm.xml" />
     <Content Include="Models\Mappings\EnrolledCoursesStudentRegister.hbm.xml" />
+    <Content Include="Models\Mappings\Lecturer.hbm.xml" />
     <Content Include="Models\Mappings\Semester.hbm.xml" />
     <Content Include="Models\Mappings\Subject.hbm.xml" />
+    <Content Include="Models\Mappings\University.hbm.xml" />
     <None Include="App.config" />
     <Content Include="Models\Mappings\Student.hbm.xml" />
     <None Include="packages.config" />
@@ -171,7 +191,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="hibernate.cfg.xml" />
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace StudentManagement.Data.Dapper
 {
@@ -13,10 +14,12 @@ namespace StudentManagement.Data.Dapper
     {
         private readonly string _connectionString;
         SqlDataAccess<EnrolledCourses> _dataAccess;
+        SqlDataDapperAccess<EnrolledCourses> _dataDapperAccess;
         public EnrolledCoursesDapperData(string connectionString)
         {
             this._connectionString = connectionString;
             _dataAccess = new SqlDataAccess<EnrolledCourses>(connectionString);
+            _dataDapperAccess = new SqlDataDapperAccess<EnrolledCourses>(_connectionString);
         }
         public bool Create(EnrolledCourses entity)
         {
@@ -30,23 +33,31 @@ namespace StudentManagement.Data.Dapper
 
         public EnrolledCourses Get(object key)
         {
-            string query = $"select *  from TBL_EnrolledCourses where IDEnrolledCourses = {key}";
-            var datas = _dataAccess.ExecuteQuery(query);
-            if(datas.Rows.Count == 0)
-            {
-                return null;
-            }
-            var list = Helper.ConvertDataTableToList<EnrolledCourses>(datas);
-            return list[0];
+            //string query = $"select *  from TBL_EnrolledCourses where IDEnrolledCourses = {key}";
+
+            //var datas = _dataAccess.ExecuteQuery(query);
+            //if(datas.Rows.Count == 0)
+            //{
+            //    return null;
+            //}
+            //var list = Helper.ConvertDataTableToList<EnrolledCourses>(datas);
+            //return list[0];
+
+            string query = $"select *  from TBL_EnrolledCourses where IDEnrolledCourses = @IDEnrolledCourses";
+
+            return _dataDapperAccess.Query(query,("IDEnrolledCourses", key)).FirstOrDefault();
         }
 
         public List<EnrolledCourses> GetAll()
         {
-            string query = $"select *  from TBL_EnrolledCourses";
-            var datas = _dataAccess.ExecuteQuery(query);
+            //string query = $"select *  from TBL_EnrolledCourses";
+            //var datas = _dataAccess.ExecuteQuery(query);
 
-            var list = Helper.ConvertDataTableToList<EnrolledCourses>(datas);
-            return list;
+            //var list = Helper.ConvertDataTableToList<EnrolledCourses>(datas);
+            //return list;
+
+            string query = $"select *  from TBL_EnrolledCourses";
+            return _dataDapperAccess.Query(query) ;
         }
 
         public bool Save()

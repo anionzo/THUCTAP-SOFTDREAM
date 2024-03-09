@@ -24,14 +24,14 @@ namespace StudentManagement.Models
         public virtual string ImageAvatar { get; set; }
         public virtual string Status { get; set; }
 
-        public string GetDayAdmissionFormat(string format)
-        {
-            return DayAdmission.ToString(format);
-        }
+        //public string GetDayAdmissionFormat(string format)
+        //{
+        //    return DayAdmission.ToString(format);
+        //}
 
-        public string GetDateOfBirthFormat(string format)
-        {
-            return DateOfBirth.ToString(format);
-        }
+        //public string GetDateOfBirthFormat(string format)
+        //{
+        //    return DateOfBirth.ToString(format);
+        //}
     }
 }
