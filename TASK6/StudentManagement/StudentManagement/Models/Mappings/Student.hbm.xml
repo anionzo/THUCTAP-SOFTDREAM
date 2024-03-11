@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="StudentManagement" namespace="StudentManagement.Models">
+
+
+	<class name="Student" table="TBL_Student" dynamic-update="true">
+		<id name="MSSV" column="MSSV">
+			<generator class="native"/>
+		</id>
+		<property name="NameStudenr"/>
+		<property name="DayAdmission" type="date"/>
+		<property name="DateOfBirth" type="date"/>
+		<property name="Gender"/>
+		<property name="Education"/>
+		<property name="PhoneNumber"/>
+		<property name="CCCD"/>
+		<property name="IDDiscipline" />
+		<property name="Ethnicity"/>
+		<property name="Religion"/>
+		<property name="PermanentAddress"/>
+		<property name="ImageAvatar"/>
+		<property name="Status"/>
+	</class>
+
+</hibernate-mapping>

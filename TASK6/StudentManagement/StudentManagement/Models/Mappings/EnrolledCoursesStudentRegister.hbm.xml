@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="StudentManagement" namespace="StudentManagement.Models">
+
+	<class name="EnrolledCoursesStudentRegister" table="TBL_EnrolledCourses_Student_Register" dynamic-update="true">
+		<composite-id>
+			<key-property name="MSSV"/>
+			<key-property name="IDEnrolledCourses" column="IDEnrolledCourses"/>
+		</composite-id>
+
+		<property name="CourseWorkScore"/>
+		<property name="ExamScore"/>
+		<property name="TotalScore"/>
+	</class>
+	
+</hibernate-mapping>
