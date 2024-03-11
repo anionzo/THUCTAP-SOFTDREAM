@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentManagement
+namespace StudentManagement.CastleWinsdor
 {
     public class DependencyInstaller : IWindsorInstaller
     {

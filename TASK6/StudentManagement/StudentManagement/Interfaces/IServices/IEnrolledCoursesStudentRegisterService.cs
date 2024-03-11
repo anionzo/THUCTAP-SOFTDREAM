@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Interfaces.IServices
 {
-    internal interface IEnrolledCoursesStudentRegisterService: IReadWrite<EnrolledCoursesStudentRegister>
+    public interface IEnrolledCoursesStudentRegisterService: IReadWrite<EnrolledCoursesStudentRegister>
     {
         void ShowListshowsubjectScoreboard(List<EnrolledCoursesStudentRegister> list);
         void ShowListStudent_Fail_Pass(DataTable dataTable);

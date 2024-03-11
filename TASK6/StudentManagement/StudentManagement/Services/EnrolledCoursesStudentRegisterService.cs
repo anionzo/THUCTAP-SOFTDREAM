@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Services
 {
-    internal class EnrolledCoursesStudentRegisterService : IEnrolledCoursesStudentRegisterService
+    public class EnrolledCoursesStudentRegisterService : IEnrolledCoursesStudentRegisterService
     {
         WindsorContainer container = new WindsorContainer();
         IEnrolledCoursesStudentRegisterData enrolledCoursesStudentRegisterDapperData;

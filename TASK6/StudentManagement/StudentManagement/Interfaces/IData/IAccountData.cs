@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Interfaces.IData
 {
-    internal interface IAccountData:IReadData<Account>, ICUDData<Account>
+    public interface IAccountData:IReadData<Account>, ICUDData<Account>
     {
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Interfaces.IData
 {
-    internal interface IEnrolledCoursesStudentRegisterData: IReadData<EnrolledCoursesStudentRegister>, ICUDData<EnrolledCoursesStudentRegister>
+    public interface IEnrolledCoursesStudentRegisterData: IReadData<EnrolledCoursesStudentRegister>, ICUDData<EnrolledCoursesStudentRegister>
     {
         DataTable GetListStudent_Fail_Pass(int IDEnrolledCourse);
     }

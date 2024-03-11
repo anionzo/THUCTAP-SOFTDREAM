@@ -61,7 +61,14 @@ namespace StudentManagement.Data.Dapper
             var students = _dataDapperAccess.Query(query);
             return students != null ? students: null;
         }
+        public List<CoursesRegistered> GetAllCoursesRegistered(string idSemester, string mssv)
+        {
+            string query = $"SELECT * FROM dbo.GetCoursesRegistered(@SemesterID, @StudentID)";
+            var _dataCoursesRegisteredDapperAccess = new SqlDataDapperAccess<CoursesRegistered>(_connectionString);
 
+            var listdata = _dataCoursesRegisteredDapperAccess.Query(query, ("@SemesterID", idSemester), ("@StudentID", mssv));
+            return listdata;
+        }
         public DataTable GetEnrolledCourseInfoForStudent(string mssv)
         {
             //string query = "select* from GetEnrolledCourseInfoForStudent(@StudentID)";

@@ -10,7 +10,7 @@ using System.Xml.Linq;
 
 namespace StudentManagement.Services
 {
-    internal class SemesterService : ISemesterService
+    public class SemesterService : ISemesterService
     {
         public void Add(Semester emmt)
         {

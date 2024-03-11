@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Interfaces
 {
-    internal interface IReadWrite<T>
+    public interface IReadWrite<T>
     {
         void Add(T emmt);
         void ShowList(List<T> list);

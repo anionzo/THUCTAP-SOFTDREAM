@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace StudentManagement.Utilities
 {
-    internal class HelperPrint
+    public class HelperPrint
     {
         public static void PrintTable<T>(List<T> dataList, List<string> nameHeader, int length =15)
         {

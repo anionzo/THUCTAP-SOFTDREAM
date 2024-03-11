@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Services
 {
-    internal class LecturersService : ILecturersService
+    public class LecturersService : ILecturersService
     {
         public void Add(Lecturer emmt)
         {

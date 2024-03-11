@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Interfaces.IServices
 {
-    internal interface IDisciplineService : IReadWrite<Discipline>
+    public interface IDisciplineService : IReadWrite<Discipline>
     {
     }
 }

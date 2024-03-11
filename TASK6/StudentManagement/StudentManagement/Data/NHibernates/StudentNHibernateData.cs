@@ -61,6 +61,10 @@ namespace StudentManagement.Data.NHibernates
             }
         }
 
+        public List<CoursesRegistered> GetAllCoursesRegistered(string idSemester, string mssv)
+        {
+            throw new NotImplementedException();
+        }
 
         public DataTable GetEnrolledCourseInfoForStudent(string mssv)
         {

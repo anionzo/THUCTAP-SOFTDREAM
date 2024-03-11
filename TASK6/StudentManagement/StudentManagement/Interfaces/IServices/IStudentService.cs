@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Interfaces.IServices
 {
-    internal interface IStudentService : IReadWrite<Student>
+    public interface IStudentService : IReadWrite<Student>
     {
         void ShowStudent(Student student);
         void ShowNumberSubjectRegister(double number);

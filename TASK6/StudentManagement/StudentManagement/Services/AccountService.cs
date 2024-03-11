@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Services
 {
-    internal class AccountService : IAccountService
+    public class AccountService : IAccountService
     {
         public void Add(Account emmt)
         {

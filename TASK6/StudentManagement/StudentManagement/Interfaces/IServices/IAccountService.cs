@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Interfaces.IServices
 {
-    internal interface IAccountService: IReadWrite<Account>
+    public interface IAccountService: IReadWrite<Account>
     {
     }
 }

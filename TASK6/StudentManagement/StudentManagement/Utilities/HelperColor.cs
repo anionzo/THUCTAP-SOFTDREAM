@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Utilities
 {
-    internal class HelperColor
+    public class HelperColor
     {
         public static ConsoleColor Red = ConsoleColor.Red;
         public static ConsoleColor Blue = ConsoleColor.Blue;

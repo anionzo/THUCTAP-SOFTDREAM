@@ -1,0 +1,81 @@
+﻿@model StudentManagement.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var studen = ViewBag.Student;
+}
+
+<h2>Details</h2>
+
+
+<div>
+    <h4>Student Information</h4>
+    @Html.ActionLink("Chi Tiết Môn Học Đăng Ký", "ShowListSubjectRegister", new { id = studen.MSSV })
+
+    <hr />
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.MSSV)</th>
+                <td>@Html.DisplayFor(model => model.MSSV)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.NameStudenr)</th>
+                <td>@Html.DisplayFor(model => model.NameStudenr)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.DayAdmission)</th>
+                <td>@Html.DisplayFor(model => model.DayAdmission)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.DateOfBirth)</th>
+                <td>@Html.DisplayFor(model => model.DateOfBirth)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Gender)</th>
+                <td>@Html.DisplayFor(model => model.Gender)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Education)</th>
+                <td>@Html.DisplayFor(model => model.Education)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.PhoneNumber)</th>
+                <td>@Html.DisplayFor(model => model.PhoneNumber)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.CCCD)</th>
+                <td>@Html.DisplayFor(model => model.CCCD)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.IDDiscipline)</th>
+                <td>@Html.DisplayFor(model => model.IDDiscipline)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Ethnicity)</th>
+                <td>@Html.DisplayFor(model => model.Ethnicity)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Religion)</th>
+                <td>@Html.DisplayFor(model => model.Religion)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.PermanentAddress)</th>
+                <td>@Html.DisplayFor(model => model.PermanentAddress)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.ImageAvatar)</th>
+                <td>@Html.DisplayFor(model => model.ImageAvatar)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Status)</th>
+                <td>@Html.DisplayFor(model => model.Status)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

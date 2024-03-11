@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Services
 {
-    internal class EnrolledCoursesService : IEnrolledCoursesService
+    public class EnrolledCoursesService : IEnrolledCoursesService
     {
         public void Add(EnrolledCourses emmt)
         {

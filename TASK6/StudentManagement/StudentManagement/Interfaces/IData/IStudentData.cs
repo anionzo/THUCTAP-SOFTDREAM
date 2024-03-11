@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Interfaces.IData
 {
-    internal interface IStudentData: IReadData<Student>, ICUDData<Student>
+    public interface IStudentData: IReadData<Student>, ICUDData<Student>
     {
         double GetNumberSubjectRegister(string idSemester, string mssv);
         DataTable GetEnrolledCourseInfoForStudent(string mssv);
-
+        List<CoursesRegistered> GetAllCoursesRegistered(string idSemester, string mssv);
     }
 }

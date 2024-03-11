@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Services
 {
-    internal class SubjectService : ISubjectService
+    public class SubjectService : ISubjectService
     {
         public void Add(Subject emmt)
         {

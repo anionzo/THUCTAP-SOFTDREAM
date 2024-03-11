@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Services
 {
-    internal class StudentService : IStudentService
+    public class StudentService : IStudentService
     {
 
         private readonly IStudentData _studentData;

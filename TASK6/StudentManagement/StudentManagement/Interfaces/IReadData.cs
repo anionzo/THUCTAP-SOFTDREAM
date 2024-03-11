@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Interfaces
 {
-    internal interface IReadData<T>
+    public interface IReadData<T>
     {
         T Get(object key);
         List<T> GetAll();

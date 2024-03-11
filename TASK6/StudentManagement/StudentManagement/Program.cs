@@ -1,5 +1,6 @@
 ﻿using Castle.Windsor;
 using Castle.Windsor.Installer;
+using StudentManagement.CastleWinsdor;
 using StudentManagement.Data.Dapper;
 using StudentManagement.Interfaces.IData;
 using StudentManagement.Interfaces.IServices;
@@ -38,7 +39,7 @@ namespace StudentManagement
             List<EnrolledCourses> enrolledCourses;
             Student student = new Student();
             //// WindsorContainer
-            var container = new  WindsorContainer();
+            var container = new WindsorContainer();
 
             try
             {

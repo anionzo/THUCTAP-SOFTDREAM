@@ -13,7 +13,7 @@ using System.Web.UI.WebControls;
 
 namespace StudentManagement.Utilities
 {
-    internal class Helper
+    public class Helper
     {
         public static List<T> ConvertDataTableToList<T>(DataTable dataTable) 
         {

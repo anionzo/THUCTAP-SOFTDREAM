@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Services
 {
-    internal class UniversityService : IUniversityService
+    public class UniversityService : IUniversityService
     {
         private readonly IUniversityData _universityData;
         public UniversityService(IUniversityData universityData) {
