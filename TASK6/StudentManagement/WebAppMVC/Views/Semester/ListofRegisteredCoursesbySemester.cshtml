@@ -1,0 +1,77 @@
+﻿@model IEnumerable<StudentManagement.Models.EnrolledCourses>
+
+@{
+    ViewBag.Title = "ListofRegisteredCoursesbySemester";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ListofRegisteredCoursesbySemester</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDEnrolledCourses)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDSubject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDLecturer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDSemester)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpectedClass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capacity)
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDEnrolledCourses)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDSubject)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDLecturer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDSemester)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpectedClass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Capacity)
+        </td>
+        <td>
+            @Html.ActionLink("NHẬP ĐIỂM", "listCoursesStudentRegister", "EnrolledCoursesStudentRegister", new { id = item.IDEnrolledCourses }, null)
+
+        </td>
+        <td>
+            @Html.ActionLink("ĐẬU RỚT SINH VIÊN", "ListStudent_Fail_Pass", "EnrolledCoursesStudentRegister", new { id = item.IDEnrolledCourses }, null)
+
+        </td>
+    </tr>
+}
+
+</table>

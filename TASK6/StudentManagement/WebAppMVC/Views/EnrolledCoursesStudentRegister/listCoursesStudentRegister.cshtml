@@ -1,0 +1,53 @@
+﻿@model IEnumerable<StudentManagement.Models.EnrolledCoursesStudentRegister>
+
+@{
+    ViewBag.Title = "listCoursesStudentRegister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>listCoursesStudentRegister</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MSSV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDEnrolledCourses)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseWorkScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExamScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalScore)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td >
+            @Html.DisplayFor(modelItem => item.MSSV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDEnrolledCourses)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseWorkScore)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExamScore)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalScore)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.IDEnrolledCourses, mssv = item.MSSV }) |
+        </td>
+    </tr>
+}
+
+</table>

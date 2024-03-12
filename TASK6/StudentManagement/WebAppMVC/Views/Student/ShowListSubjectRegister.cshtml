@@ -1,0 +1,89 @@
+﻿@model IEnumerable< StudentManagement.Models.CoursesRegistered>
+
+@{
+    ViewBag.Title = "ShowListSubjectRegister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiết Danh Sách Môn Học CÂU 3 - 4</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDSemester)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameSemester)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YearStart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YearEnd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameSubject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Credits)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseworkWeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseWorkScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExamScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalScore)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDSemester)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameSemester)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YearStart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YearEnd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameSubject)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Credits)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseworkWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseWorkScore)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExamScore)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalScore)
+        </td>
+        <td>
+        
+        </td>
+    </tr>
+}
+
+</table>

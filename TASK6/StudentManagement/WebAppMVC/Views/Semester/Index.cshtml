@@ -1,0 +1,47 @@
+﻿@model IEnumerable<StudentManagement.Models.Semester>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDSemester)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameSemester)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YearStart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YearEnd)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDSemester)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameSemester)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YearStart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YearEnd)
+        </td>
+        <td>
+            @Html.ActionLink("Danh sách môn học theo học kì", "ListofRegisteredCoursesbySemester", new { id=item.IDSemester  }) 
+        </td>
+    </tr>
+}
+
+</table>
