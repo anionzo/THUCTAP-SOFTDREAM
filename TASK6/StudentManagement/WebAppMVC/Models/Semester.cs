@@ -8,9 +8,9 @@ namespace WebAppMVC.Models
 {
     public class Semester
     {
-        public virtual int IDSemester { get; set; }
-        public virtual string NameSemester { get; set; }
-        public virtual int YearStart { get; set; }
-        public virtual int YearEnd { get; set; }
+        public  int IDSemester { get; set; }
+        public  string NameSemester { get; set; }
+        public  int YearStart { get; set; }
+        public  int YearEnd { get; set; }
     }
 }

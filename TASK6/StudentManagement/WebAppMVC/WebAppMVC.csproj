@@ -131,7 +131,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WindsorActivator.cs" />
+    <Compile Include="Controllers\EnrolledCoursesStudentRegisterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SemesterController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -141,6 +143,7 @@
     <Compile Include="Models\EnrolledCoursesStudentRegister.cs" />
     <Compile Include="Models\Semester.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\StudentFailPass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -197,6 +200,11 @@
     <Content Include="Views\Student\ShowList.cshtml" />
     <Content Include="Views\Student\Details.cshtml" />
     <Content Include="Views\Student\ShowListSubjectRegister.cshtml" />
+    <Content Include="Views\Semester\Index.cshtml" />
+    <Content Include="Views\Semester\ListofRegisteredCoursesbySemester.cshtml" />
+    <Content Include="Views\EnrolledCoursesStudentRegister\listCoursesStudentRegister.cshtml" />
+    <Content Include="Views\EnrolledCoursesStudentRegister\ListStudent_Fail_Pass.cshtml" />
+    <Content Include="Views\EnrolledCoursesStudentRegister\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

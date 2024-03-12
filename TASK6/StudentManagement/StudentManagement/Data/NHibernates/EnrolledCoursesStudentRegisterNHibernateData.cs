@@ -2,6 +2,7 @@
 using StudentManagement.Data.Dapper;
 using StudentManagement.Interfaces.IData;
 using StudentManagement.Models;
+using StudentManagement.Models.DapperModels;
 using StudentManagement.Utilities;
 using System;
 using System.Collections.Generic;
@@ -79,6 +80,11 @@ namespace StudentManagement.Data.NHibernates
                     return null;
                 }
             }
+        }
+
+        public List<StudentFailPass> GetStudent_Fail_PassList(int IDEnrolledCourse)
+        {
+            throw new NotImplementedException();
         }
 
         public bool Save()

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<StudentManagement.Models.DapperModels.StudentFailPass>
+
+@{
+    ViewBag.Title = "ListStudent_Fail_Pass";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ListStudent_Fail_Pass</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MSSV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDEnrolledCourses)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseWorkScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExamScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Result)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MSSV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDEnrolledCourses)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseWorkScore)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExamScore)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalScore)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Result)
+        </td>
+    </tr>
+}
+
+</table>

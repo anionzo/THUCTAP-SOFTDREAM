@@ -83,6 +83,13 @@ namespace StudentManagement.Data.Dapper
             return dataTable;
         }
 
+        public List<StudentFailPass> GetStudent_Fail_PassList(int IDEnrolledCourse)
+        {
+            string query = $"select * from GetSubjectFailPass({IDEnrolledCourse})";
+            SqlDataDapperAccess<StudentFailPass> sqlData = new SqlDataDapperAccess<StudentFailPass>(_connectionString);
+            return sqlData.Query(query);
+        }
+
         public bool Save()
         {
             throw new NotImplementedException();

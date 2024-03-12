@@ -58,7 +58,6 @@ namespace StudentManagement.Data.Dapper
             return _sqlDataDapperAccess.Query(query);
 
         }
-
         public bool Save()
         {
             throw new NotImplementedException();

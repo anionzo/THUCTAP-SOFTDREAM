@@ -100,6 +100,7 @@ RETURN (
 );
 
 --DROP FUNCTION GetSubjectFailPass;
+
 CREATE FUNCTION dbo.GetCoursesRegistered
 (
     @SemesterID INT,
@@ -108,7 +109,7 @@ CREATE FUNCTION dbo.GetCoursesRegistered
 RETURNS TABLE 
 AS
 RETURN (
-    SELECT se.*, su.* 
+    SELECT se.*, st.MSSV, su.NameSubject, su.Credits, su.CourseworkWeight, su.CourseType 
     FROM TBL_Semester se
     JOIN TBL_EnrolledCourses ec ON se.IDSemester = ec.IDSemester
     JOIN TBL_EnrolledCourses_Student_Register esr ON esr.IDEnrolledCourses = ec.IDEnrolledCourses
