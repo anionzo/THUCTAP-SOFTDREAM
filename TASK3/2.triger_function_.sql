@@ -37,6 +37,45 @@ RETURN (
 GO
 --SELECT * FROM GetEnrolledCourseInfoForStudent('SV001')
 
+CREATE FUNCTION GetSubjectFailPass(@IDEnrolledCourses int)
+RETURNS TABLE 
+AS
+RETURN (
+    SELECT 
+        *,
+        CASE 
+            WHEN TotalScore >= 4 THEN N'Đậu'
+            WHEN TotalScore < 4 THEN N'Rớt'
+            ELSE N'Chưa có kết quả'
+        END AS Result
+    FROM 
+        TBL_EnrolledCourses_Student_Register 
+    WHERE 
+        IDEnrolledCourses = @IDEnrolledCourses
+)
+go
+
+--DROP FUNCTION GetSubjectFailPass;
+
+CREATE FUNCTION dbo.GetCoursesRegistered
+(
+    @SemesterID INT,
+    @StudentID VARCHAR(50)
+)
+RETURNS TABLE 
+AS
+RETURN (
+    SELECT se.*, su.NameSubject, su.Credits, su.CourseworkWeight, su.CourseType, esr.*
+    FROM TBL_Semester se
+    JOIN TBL_EnrolledCourses ec ON se.IDSemester = ec.IDSemester
+    JOIN TBL_EnrolledCourses_Student_Register esr ON esr.IDEnrolledCourses = ec.IDEnrolledCourses
+    JOIN TBL_Subject su ON su.IDSubject = ec.IDSubject
+    JOIN TBL_Student st ON st.MSSV = esr.MSSV
+    WHERE esr.MSSV = @StudentID AND se.IDSemester = @SemesterID
+)
+GO
+
+--        DROP FUNCTION dbo.GetCoursesRegistered
 ------------ TRIGER
 
 CREATE TRIGGER CalculateTotalScore
@@ -81,42 +120,3 @@ END;
 
 GO
 
-
-CREATE FUNCTION GetSubjectFailPass(@IDEnrolledCourses int)
-RETURNS TABLE 
-AS
-RETURN (
-    SELECT 
-        *,
-        CASE 
-            WHEN TotalScore >= 4 THEN N'Đậu'
-            WHEN TotalScore < 4 THEN N'Rớt'
-            ELSE N'Chưa có kết quả'
-        END AS Result
-    FROM 
-        TBL_EnrolledCourses_Student_Register 
-    WHERE 
-        IDEnrolledCourses = @IDEnrolledCourses
-);
-
---DROP FUNCTION GetSubjectFailPass;
-
-CREATE FUNCTION dbo.GetCoursesRegistered
-(
-    @SemesterID INT,
-    @StudentID VARCHAR(50)
-)
-RETURNS TABLE 
-AS
-RETURN (
-    SELECT se.*, st.MSSV, su.NameSubject, su.Credits, su.CourseworkWeight, su.CourseType 
-    FROM TBL_Semester se
-    JOIN TBL_EnrolledCourses ec ON se.IDSemester = ec.IDSemester
-    JOIN TBL_EnrolledCourses_Student_Register esr ON esr.IDEnrolledCourses = ec.IDEnrolledCourses
-    JOIN TBL_Subject su ON su.IDSubject = ec.IDSubject
-    JOIN TBL_Student st ON st.MSSV = esr.MSSV
-    WHERE esr.MSSV = @StudentID AND se.IDSemester = @SemesterID
-)
-GO
-
---        DROP FUNCTION dbo.GetCoursesRegistered
