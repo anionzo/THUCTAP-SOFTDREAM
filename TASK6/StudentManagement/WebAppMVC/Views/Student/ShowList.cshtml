@@ -30,6 +30,8 @@
             @Html.DisplayNameFor(model => model.Status)
         </th>
         <th></th>
+        <th></th>
+
     </tr>
 
 @foreach (var item in Model) {
@@ -53,7 +55,10 @@
             @Html.DisplayFor(modelItem => item.Status)
         </td>
         <td>
-            @Html.ActionLink("Details", "Details", new {  id=item.MSSV  })
+            @Html.ActionLink("Câu 2: Chi tiết ", "Details", new {  id=item.MSSV  })
+        </td>
+        <td>
+             @Html.ActionLink("Câu 3 - 4", "ShowListSubjectRegister", new { id = item.MSSV })
         </td>
     </tr>
 }
