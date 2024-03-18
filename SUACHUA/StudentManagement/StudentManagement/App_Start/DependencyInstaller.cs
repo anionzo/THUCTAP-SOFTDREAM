@@ -21,6 +21,7 @@ namespace StudentManagement
 
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
+
             //////// data
             container.Register(Component.For<IStudentService>().ImplementedBy<StudentService>(),
                 Component.For<IStudentData>().ImplementedBy<StudentDapperData>().DependsOn(Dependency.OnValue("connectionString", connectionString))
@@ -53,6 +54,8 @@ namespace StudentManagement
             container.Register(Component.For<IUniversityService>().ImplementedBy<UniversityService>(),
                 Component.For<IUniversityData>().ImplementedBy<UniversityDapperData>().DependsOn(Dependency.OnValue("connectionString", connectionString))
             );
+
+
 
             ///// Nhibernate
             //container.Register(Component.For<IStudentService>().ImplementedBy<StudentService>(),
