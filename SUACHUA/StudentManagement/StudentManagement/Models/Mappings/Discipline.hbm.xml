@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="StudentManagement" namespace="StudentManagement.Models">
+
+	<class name="Discipline" table="TBL_Discipline" dynamic-update="true">
+		<id name="IDDiscipline" column="IDDiscipline">
+			<generator class="native"/>
+		</id>
+		<property name="NameDiscipline" column="NameDiscipline" />
+		<many-to-one name="IDDepartment" column="IDDepartment" class="Department" />
+	</class>
+
+</hibernate-mapping>
