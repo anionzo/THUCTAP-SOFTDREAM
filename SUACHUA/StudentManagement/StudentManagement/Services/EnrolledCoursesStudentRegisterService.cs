@@ -29,10 +29,16 @@ namespace StudentManagement.Services
         {
             throw new NotImplementedException();
         }
-        public List<StudentFailPass> GetListStudent_Fail_Pass(int IDEnrolledCourse)
+
+        public List<SubjectFailPass> GetSubjectFailPassList(string StudentID)
         {
-            return _enrolledCoursesStudentRegisterDapperData.GetStudent_Fail_PassList(IDEnrolledCourse);
+            return _enrolledCoursesStudentRegisterDapperData.GetSubjectFailPassList(StudentID);
         }
+
+        //public List<StudentFailPass> GetSubjectFailPassList(int IDEnrolledCourse)
+        //{
+        //    return _enrolledCoursesStudentRegisterDapperData.GetSubjectFailPassList(IDEnrolledCourse);
+        //}
         public void Update(EnrolledCoursesStudentRegister emmt)
         {
             _enrolledCoursesStudentRegisterDapperData.Update(emmt);

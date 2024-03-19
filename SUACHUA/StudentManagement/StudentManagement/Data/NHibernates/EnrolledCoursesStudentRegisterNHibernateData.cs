@@ -82,7 +82,7 @@ namespace StudentManagement.Data.NHibernates
             }
         }
 
-        public List<StudentFailPass> GetStudent_Fail_PassList(int IDEnrolledCourse)
+        public List<SubjectFailPass> GetSubjectFailPassList(string StudentID)
         {
             throw new NotImplementedException();
         }

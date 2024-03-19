@@ -1,0 +1,84 @@
+﻿@model IEnumerable<StudentManagement.Models.DapperModels.SubjectFailPass>
+
+<p>
+</p>
+<h4 class="text-uppercase text-center">Kết quả môn học</h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.STT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDEnrolledCourses)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameSubject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Credits)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseWorkScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExamScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Result)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+     bool result = true;
+        if(item.Result.Equals("Chưa có kết quả"))
+        {
+            result = false;
+        }
+    
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.STT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDEnrolledCourses)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameSubject)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Credits)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseType)
+        </td>
+        <td>
+            @(result == false && item.CourseWorkScore == 0 ? "-" :item.CourseWorkScore )
+
+
+        </td>
+        <td>
+            @(result == false && item.ExamScore == 0 ? "-" : item.ExamScore )
+
+
+        </td>
+        <td>
+            @(result == false && item.TotalScore == 0 ? "-" : item.TotalScore )
+
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Result)
+        </td>
+        <td>
+        </td>
+    </tr>
+}
+
+</table>

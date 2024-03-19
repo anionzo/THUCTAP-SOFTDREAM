@@ -13,7 +13,7 @@ namespace StudentManagement.Interfaces.IServices
 {
     public interface IEnrolledCoursesStudentRegisterService: IReadWrite<EnrolledCoursesStudentRegister>
     {
-        List<StudentFailPass> GetListStudent_Fail_Pass(int IDEnrolledCourse);
+        List<SubjectFailPass> GetSubjectFailPassList(string StudentID);
         void Update(EnrolledCoursesStudentRegister emmt);
 
     }

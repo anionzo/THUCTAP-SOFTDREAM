@@ -13,7 +13,7 @@ namespace StudentManagement.Interfaces.IData
     public interface IEnrolledCoursesStudentRegisterData: IReadData<EnrolledCoursesStudentRegister>, ICUDData<EnrolledCoursesStudentRegister>
     {
         DataTable GetListStudent_Fail_Pass(int IDEnrolledCourse);
-        List<StudentFailPass> GetStudent_Fail_PassList(int IDEnrolledCourse);
+        List<SubjectFailPass> GetSubjectFailPassList(string StudentID);
 
     }
 }

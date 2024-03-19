@@ -8,6 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Dapper.SqlMapper;
 
 namespace StudentManagement.Data.Dapper
 {
@@ -83,11 +84,12 @@ namespace StudentManagement.Data.Dapper
             return dataTable;
         }
 
-        public List<StudentFailPass> GetStudent_Fail_PassList(int IDEnrolledCourse)
+        public List<SubjectFailPass> GetSubjectFailPassList(string StudentID)
         {
-            string query = $"select * from GetSubjectFailPass({IDEnrolledCourse})";
-            SqlDataDapperAccess<StudentFailPass> sqlData = new SqlDataDapperAccess<StudentFailPass>(_connectionString);
-            return sqlData.Query(query);
+            string query = $"select * from GetSubjectFailPass(@StudentID)";
+            (string, object)[] parameters = { ("@StudentID", StudentID) };
+            SqlDataDapperAccess<SubjectFailPass> sqlData = new SqlDataDapperAccess<SubjectFailPass>(_connectionString);
+            return sqlData.Query(query,parameters);
         }
 
         public bool Save()
