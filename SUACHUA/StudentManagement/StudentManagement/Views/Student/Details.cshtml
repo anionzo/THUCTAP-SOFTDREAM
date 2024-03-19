@@ -1,0 +1,79 @@
+﻿@model StudentManagement.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var student = ViewBag.Student;
+}
+
+<div class="col-md-12 col-xs-12"  >
+        <div class="row"  >
+            <div class="col-md-3"  >
+                <div class=""  >
+                    <div class=""  >
+                        <div class=""  >
+                            <img src="https://cdn.sforum.vn/sforum/wp-content/uploads/2023/10/avatar-trang-101.jpg" class="ratio ratio-3x4 rounded-circle " style="width: 120px; height:140px;">
+                        </div>
+
+                        <br>
+                        <div class="form-group row"  >
+                            <div class="control-label"  ><span>MSSV</span>: <b>@Html.DisplayFor(model => model.MSSV)</b></div>
+                        </div>
+                        <div class="form-group row"  >
+                            <div class="control-label text-uppercase"  ><span>Họ tên</span>: <b>@Html.DisplayFor(model => model.NameStudenr)</b></div>
+                        </div>
+                        <div class="form-group row"  >
+                            <div class="control-label"  ><span >Giới tính</span>: <b>@Html.DisplayFor(model => model.Gender)</b></div>
+                            <div class="clearfix"  ></div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9"  >
+                <div class=""  >
+                    <div class=""  >
+                        <div class="text-uppercase fs-3 fw-bold"  >
+                            <span class="">Thông tin học vấn</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body"  >
+                        <div class="col-md-12"  >
+                            <form class="form-horizontal">
+                                <div class="form-body"  >
+                                    <div class="form-group row"  >
+
+                                        <label class="col-md-3"><span >Trạng thái</span>: <span class="fw-bold">@Html.DisplayFor(model => model.Status)</span></label>
+                                        <label class="col-md-3"><span>Mã hồ sơ</span>: <span class="fw-bold">@Html.DisplayFor(model => model.MSSV)</span></label>
+                                        <label class="col-md-6"><span >Ngày vào trường</span>: <span class="fw-bold">@Html.DisplayFor(model => model.DayAdmission)</span></label>
+
+                                    </div>
+                                    <div class="form-group row"  >
+                                        <label class="col-md-6"><span >Số điện thoại</span>: <span class="fw-bold">@Html.DisplayFor(model => model.PhoneNumber)</span></label>
+                                        <label class="col-md-6"><span >Ngày sinh</span>: <span class="fw-bold">@Html.DisplayFor(model => model.DateOfBirth)</span></label>
+                                    </div>
+                                    <div class="form-group row"  >
+                                        <label class="col-md-6"><span >Bậc</span>: <span class="fw-bold">@Html.DisplayFor(model => model.Education)</span></label>
+                                        <label class="col-md-6"><span>CCCD</span>: <span class="fw-bold">@Html.DisplayFor(model => model.CCCD)</span></label>
+                                    </div>
+                                    <div class="form-group row"  >
+                                        <label class="col-md-6"><span>Dân tộc</span>: <span class="fw-bold">@Html.DisplayFor(model => model.Ethnicity)</span></label>
+                                        <label class="col-md-6"><span >Tôn giáo</span>: <span class="fw-bold">@Html.DisplayFor(model => model.Religion)</span></label>
+                                    </div>
+                                    <div class="form-group row"  >
+                                        <label class="col-md-6"><span >Địa chỉ</span>: <span class="fw-bold">@Html.DisplayFor(model => model.PermanentAddress)</span></label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"  ></div>
+        </div>
+</div>
+
+
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

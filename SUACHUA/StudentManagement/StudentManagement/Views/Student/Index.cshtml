@@ -1,96 +1,130 @@
-﻿@model IEnumerable<StudentManagement.Models.Student>
+﻿@using PagedList.Mvc;
+@using PagedList;
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var students = ViewBag.Students;
 }
 
 <h2>Danh sách sinh viên</h2>
-<table class="table">
-    <tr>
+<div class="col-3 input-group mb-3 ">
+    <input type="text" class="form-control border" placeholder="Nhập vào mã sinh viên cần tìm"
+           aria-label="Nhập vào vai trò cần tìm" aria-describedby="button-search"
+           id="search" value="@ViewBag.Search">
+    <div class="input-group-append">
+        <button class="btn btn-outline-dark" type="button" id="button-search">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <tr class="table-dark">
         <th>
-            @Html.DisplayNameFor(model => model.MSSV)
+            MSSV
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NameStudenr)
+            NameStudent
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DayAdmission)
+            Day Admission
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
+            DateOfBirth
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Gender)
+            Giới tính
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Education)
+            Bằng Cấp
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
+            SĐT
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CCCD)
+            CCCD
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IDDiscipline)
+            Dân tộc
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Ethnicity)
+            Tôn Giáo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Religion)
+            Địa chỉ
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Status)
+            Trạng thái
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MSSV)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NameStudenr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DayAdmission)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateOfBirth)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Education)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CCCD)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IDDiscipline)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ethnicity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Religion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+    @foreach (var item in students)
+    {
+        <tr>
+            <td>
+                @item.MSSV
+            </td>
+            <td>
+                @item.NameStudenr
+            </td>
+            <td>
+                @item.DayAdmission.Date.ToShortDateString()
+            </td>
+            <td>
+                @item.DateOfBirth.Date.ToShortDateString()
+            </td>
+            <td>
+                @item.Gender
+            </td>
+            <td>
+                @item.Education
+            </td>
+            <td>
+                @item.PhoneNumber
+            </td>
+            <td>
+                @item.CCCD
+            </td>
+            <td>
+                @item.Ethnicity
+            </td>
+            <td>
+                @item.Religion
+            </td>
+            <td>
+                @item.PermanentAddress
+            </td>
+            <td>
+                @item.Status
+
+            </td>
+            <td>
+                <i class="fa-solid fa-bars">
+                    @Html.ActionLink("Details", "Details", new { id = item.MSSV })
+                </i>
+            </td>
+        </tr>
+    }
 
 </table>
+@Html.PagedListPager((IPagedList)ViewBag.Students, page => Url.Action("Index", new { page, @ViewBag.Search }))
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#button-search').click(function () {
+                var search = $('#search').val();
+                window.location.href = '@Url.Action("Index", new { page = 1 })' + '&search=' + search;
+            });
+
+            $('#search').keypress(function (e) {
+                if (e.which == 13) {
+                    var search = $('#search').val();
+                    window.location.href = '@Url.Action("Index", new { page = 1 })' + '&search=' + search;
+                }
+            });
+        });
+    </script>
+}
