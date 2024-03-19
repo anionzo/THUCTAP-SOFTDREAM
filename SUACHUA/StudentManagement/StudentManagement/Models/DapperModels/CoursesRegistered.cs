@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,19 +22,27 @@ namespace StudentManagement.Models
         public string NameSubject { get; set; }
         [DisplayName("Tín Chỉ")]
         public int Credits { get; set; }
-        [DisplayName("Tỉ Lệ QT")]
-        public decimal CourseworkWeight { get; set; }
+        //[DisplayName("Tỉ Lệ QT")]
+        //public decimal CourseworkWeight { get; set; }
         [DisplayName("Loại Môn")]
         public string CourseType { get; set; }
-        [DisplayName("Mã SV")]
-        public string MSSV { get; set; }
-        [DisplayName("ID Môn DK")]
-        public int IDEnrolledCourses { get; set; }
-        [DisplayName("Điểm QT")]
-        public decimal CourseWorkScore { get; set; }
-        [DisplayName("Điểm Thi")]
-        public decimal ExamScore { get; set; }
-        [DisplayName("Điểm Tổng")]
-        public decimal TotalScore { get; set; }
+        //[DisplayName("Mã SV")]
+        //public string MSSV { get; set; }
+        //[DisplayName("ID Môn DK")]
+        //public int IDEnrolledCourses { get; set; }
+        //[DisplayName("Điểm QT")]
+        //public decimal CourseWorkScore { get; set; }
+        //[DisplayName("Điểm Thi")]
+        //public decimal ExamScore { get; set; }
+        //[DisplayName("Điểm Tổng")]
+        //public decimal TotalScore { get; set; }
+
+        [DisplayName("Bắt đầu")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime StartDate { get; set; }
+        [DisplayName("Kết thúc")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime EndDate { get; set; }
+
     }
 }

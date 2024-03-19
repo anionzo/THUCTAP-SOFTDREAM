@@ -7,12 +7,12 @@
     var students = ViewBag.Students;
 }
 
-<h2>Danh sách sinh viên</h2>
-<div class="col-3 input-group mb-3 ">
+<h2 class="text-center text-uppercase" >Danh sách sinh viên</h2>
+<div class="input-group mb-3"  >
     <input type="text" class="form-control border" placeholder="Nhập vào mã sinh viên cần tìm"
            aria-label="Nhập vào vai trò cần tìm" aria-describedby="button-search"
-           id="search" value="@ViewBag.Search">
-    <div class="input-group-append">
+           id="search" value="@ViewBag.Search" autocomplete="off"/>
+    <div class="input-group-append" style="margin-left: 18px;">
         <button class="btn btn-outline-dark" type="button" id="button-search">
             <i class="fa fa-search" aria-hidden="true"></i>
         </button>
@@ -20,7 +20,7 @@
 </div>
 
 <table class="table table-striped">
-    <tr class="table-dark">
+    <tr class="table-light">
         <th>
             MSSV
         </th>
@@ -57,7 +57,9 @@
         <th>
             Trạng thái
         </th>
-        <th></th>
+        <th>
+
+        </th>
     </tr>
 
     @foreach (var item in students)
@@ -101,9 +103,9 @@
 
             </td>
             <td>
-                <i class="fa-solid fa-bars">
-                    @Html.ActionLink("Details", "Details", new { id = item.MSSV })
-                </i>
+                <a style=" text-decoration: none; color: #428bca;" class='fa-solid fa-bars' href="@Url.Action("Details", "Student", new { id = item.MSSV })" >
+                </a>
+
             </td>
         </tr>
     }

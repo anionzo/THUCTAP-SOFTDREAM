@@ -29,7 +29,7 @@ namespace StudentManagement.Controllers
 
             ViewBag.Search = "";
             int pageNumber = (page ?? 1);
-            int pageSize = 10;
+            int pageSize = 5;
 
             if (!string.IsNullOrEmpty(search))
             {
@@ -48,32 +48,42 @@ namespace StudentManagement.Controllers
         {
             Student student = _studentService.Get(id);
             ViewBag.Student = student;
+
+            //var listSemester = _semesterService.GetAll();
+            //var list = new List<CoursesRegistered>();
+
+            //foreach (var item in listSemester)
+            //{
+            //    var count = _studentService.GetNumberSubjectRegister(item.IDSemester.ToString(), id.ToString());
+            //    if (count > 0)
+            //    {
+            //        var itemCoursesRegistered = _studentService.GetAllCoursesRegistered(item.IDSemester.ToString(), id.ToString());
+            //        list.AddRange(itemCoursesRegistered);
+            //    }
+            //}
+            //ViewBag.CoursesRegistereds = list;
+            //ViewBag.Count = list.Count;
+
             return View(student);
         }
         public ActionResult ShowListSubjectRegister(object id)
         {
-           
-
             var listSemester = _semesterService.GetAll();
-            List<CoursesRegistered> list = new List<CoursesRegistered>();
+            var list = new List<CoursesRegistered>();
 
             foreach (var item in listSemester)
             {
                 var count = _studentService.GetNumberSubjectRegister(item.IDSemester.ToString(), id.ToString());
                 if (count > 0)
                 {
-                    List<CoursesRegistered> itemCoursesRegistered = _studentService.GetAllCoursesRegistered(item.IDSemester.ToString(), id.ToString());
+                    var itemCoursesRegistered = _studentService.GetAllCoursesRegistered(item.IDSemester.ToString(), id.ToString());
                     list.AddRange(itemCoursesRegistered);
-             
                 }
             }
             ViewBag.Count = list.Count;
-            if(list.Count > 0)
-            {
-                Student student = _studentService.Get(list[0].MSSV);
-                ViewBag.Student = student;
-            }
-            return View(list);
+            ViewBag.CoursesRegistereds = list;
+
+            return PartialView(list);
         }
     }
 }

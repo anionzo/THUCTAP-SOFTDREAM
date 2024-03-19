@@ -57,6 +57,28 @@ go
 
 --DROP FUNCTION GetSubjectFailPass;
 
+--cŨ 
+
+--CREATE FUNCTION dbo.GetCoursesRegistered
+--(
+--    @SemesterID INT,
+--    @StudentID VARCHAR(50)
+--)
+--RETURNS TABLE 
+--AS
+--RETURN (
+--    SELECT se.*, su.NameSubject, su.Credits, su.CourseworkWeight, su.CourseType, esr.*
+--    FROM TBL_Semester se
+--    JOIN TBL_EnrolledCourses ec ON se.IDSemester = ec.IDSemester
+--    JOIN TBL_EnrolledCourses_Student_Register esr ON esr.IDEnrolledCourses = ec.IDEnrolledCourses
+--    JOIN TBL_Subject su ON su.IDSubject = ec.IDSubject
+--    JOIN TBL_Student st ON st.MSSV = esr.MSSV
+--    WHERE esr.MSSV = @StudentID AND se.IDSemester = @SemesterID
+--)
+--GO
+
+----        DROP FUNCTION dbo.GetCoursesRegistered
+--NEW 
 CREATE FUNCTION dbo.GetCoursesRegistered
 (
     @SemesterID INT,
@@ -65,7 +87,7 @@ CREATE FUNCTION dbo.GetCoursesRegistered
 RETURNS TABLE 
 AS
 RETURN (
-    SELECT se.*, su.NameSubject, su.Credits, su.CourseworkWeight, su.CourseType, esr.*
+  SELECT se.*,su.NameSubject,su.Credits, su.CourseType,ec.StartDate, ec.EndDate
     FROM TBL_Semester se
     JOIN TBL_EnrolledCourses ec ON se.IDSemester = ec.IDSemester
     JOIN TBL_EnrolledCourses_Student_Register esr ON esr.IDEnrolledCourses = ec.IDEnrolledCourses
@@ -76,6 +98,10 @@ RETURN (
 GO
 
 --        DROP FUNCTION dbo.GetCoursesRegistered
+
+
+
+
 ------------ TRIGER
 
 CREATE TRIGGER CalculateTotalScore

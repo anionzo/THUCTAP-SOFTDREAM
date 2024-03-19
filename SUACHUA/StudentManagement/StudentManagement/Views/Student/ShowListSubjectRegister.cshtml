@@ -1,58 +1,59 @@
-﻿@model IEnumerable<StudentManagement.Models.CoursesRegistered>
+﻿@{
+    List<StudentManagement.Models.CoursesRegistered> courses = ViewBag.CoursesRegistereds;
 
-@{
-    ViewBag.Title = "ShowListSubjectRegister";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    var student = ViewBag.Student;
 }
+<h2 class="text-center text-uppercase">Danh sách môn học mà sinh viên đã đăng kí</h2>
 
-<h2>Danh sách môn học mà sinh viên đã đăng kí</h2>
-
-<p class="text-bg-success">
+<p class="">
     Đăng ký tổng cộng: @ViewBag.Count môn!
 </p>
 <table class="table">
     <tr>
-        <th>
-            Học Kỳ
+        <th class="">
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NameSubject)
+        <th class="">
+            NameSubject
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Credits)
+        <th class="">
+            Credits
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CourseType)
+        <th class="">
+            CourseType
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CourseWorkScore)
+        <th class="">
+            Bắt đầu
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ExamScore)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalScore)
+        <th class="">
+            Kết thúc
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-          @Html.DisplayFor(modelItem => item.NameSemester)   @Html.DisplayFor(modelItem => item.YearStart)             @Html.DisplayFor(modelItem => item.YearEnd)
+    @{ string nameSemester = "";
+        foreach (var item in courses)
+        {
+            string name = item.NameSemester + " " + item.YearStart + " " + item.YearEnd;
+        <tr>
+            <td class="">
 
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NameSubject)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Credits)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourseType)
-        </td>
-        <td>
+                @{
+                    if (!nameSemester.Equals(name))
+                    {
+                        @name
+                        nameSemester = name;
+                    }
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameSubject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Credits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseType)
+            </td>
+            @*<td>
             @Html.DisplayFor(modelItem => item.CourseWorkScore)
         </td>
         <td>
@@ -60,11 +61,19 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TotalScore)
-        </td>
-        <td>
-          
-        </td>
-    </tr>
-}
+        </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+
+            </td>
+            <td>
+            </td>
+        </tr>
+        }
+    }
 
 </table>
