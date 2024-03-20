@@ -66,6 +66,13 @@ namespace StudentManagement.Data.Dapper
 
         }
 
+        public List<EnrolledCoursesStudentRegister> GetAll(int id)
+        {
+
+            string query = $"select * from TBL_EnrolledCourses_Student_Register where IDEnrolledCourses = {id}";
+            return _dataDapperAccess.Query(query);
+        }
+
         public List<CoursesRegistered> GetAllCoursesRegistered()
         {
             string query = "  SELECT se.*,su.NameSubject,su.Credits, su.CourseType,ec.StartDate, ec.EndDate\r\n    FROM TBL_Semester se\r\n    JOIN TBL_EnrolledCourses ec ON se.IDSemester = ec.IDSemester\r\n    JOIN TBL_Subject su ON su.IDSubject = ec.IDSubject";

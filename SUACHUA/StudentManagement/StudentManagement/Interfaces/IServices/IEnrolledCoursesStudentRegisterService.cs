@@ -16,5 +16,8 @@ namespace StudentManagement.Interfaces.IServices
         List<SubjectFailPass> GetSubjectFailPassList(string StudentID);
         void Update(EnrolledCoursesStudentRegister emmt);
         List<CoursesRegistered> GetAllCoursesRegistered();
+        List<EnrolledCoursesStudentRegister> GetAll(int id);
+
+       
     }
 }

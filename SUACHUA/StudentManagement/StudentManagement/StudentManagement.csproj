@@ -151,6 +151,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\DependencyInstaller.cs" />
+    <Compile Include="Controllers\EnrolledCoursesController.cs" />
     <Compile Include="Controllers\EnrolledCoursesStudentRegisterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SemesterController.cs" />
@@ -296,7 +297,11 @@
     <Content Include="Views\Semester\Index.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\EnrolledCoursesStudentRegister\ShowSubjectFailPass.cshtml" />
-    <Content Include="Views\EnrolledCoursesStudentRegister\ShowSubjectBySemester.cshtml" />
+    <Content Include="Views\EnrolledCourses\Index.cshtml" />
+    <Content Include="Views\EnrolledCourses\ShowSubjectBySemester.cshtml" />
+    <Content Include="Views\EnrolledCourses\GetEnrolledCourseDetails.cshtml" />
+    <Content Include="Views\EnrolledCoursesStudentRegister\GetALLEnrolledCoursesStudentRegister.cshtml" />
+    <Content Include="Views\EnrolledCoursesStudentRegister\EditScore.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,5 +1,6 @@
 ﻿using StudentManagement.Interfaces.IData;
 using StudentManagement.Models;
+using StudentManagement.Models.DapperModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,16 @@ namespace StudentManagement.Data.NHibernates
             {
                 return session.Query<EnrolledCourses>().ToList();
             }
+        }
+
+        public List<CoursesRegistered> GetAllCoursesRegistered()
+        {
+            throw new NotImplementedException();
+        }
+
+        public EnrolledCourseDetails GetEnrolledCourseDetails(int EnrolledCourseID)
+        {
+            throw new NotImplementedException();
         }
 
         public bool Save()

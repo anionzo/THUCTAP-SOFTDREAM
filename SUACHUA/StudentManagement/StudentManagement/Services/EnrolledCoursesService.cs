@@ -1,6 +1,8 @@
-﻿using StudentManagement.Interfaces.IData;
+﻿using StudentManagement.Data.Dapper;
+using StudentManagement.Interfaces.IData;
 using StudentManagement.Interfaces.IServices;
 using StudentManagement.Models;
+using StudentManagement.Models.DapperModels;
 using StudentManagement.Utilities;
 using System;
 using System.Collections.Generic;
@@ -27,7 +29,14 @@ namespace StudentManagement.Services
         {
             return _coursesData.GetAll();
         }
+        public List<CoursesRegistered> GetAllCoursesRegistered()
+        {
+            return _coursesData.GetAllCoursesRegistered();
+        }
 
-      
+        public EnrolledCourseDetails GetEnrolledCourseDetails(int EnrolledCourseID)
+        {
+            return _coursesData.GetEnrolledCourseDetails(EnrolledCourseID);
+        }
     }
 }

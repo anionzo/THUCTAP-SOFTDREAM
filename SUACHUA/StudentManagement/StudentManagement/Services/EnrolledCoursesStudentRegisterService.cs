@@ -30,6 +30,11 @@ namespace StudentManagement.Services
             throw new NotImplementedException();
         }
 
+        public List<EnrolledCoursesStudentRegister> GetAll(int id)
+        {
+            return _enrolledCoursesStudentRegisterDapperData.GetAll(id);
+        }
+
         public List<CoursesRegistered> GetAllCoursesRegistered()
         {
             return _enrolledCoursesStudentRegisterDapperData.GetAllCoursesRegistered();

@@ -1,5 +1,6 @@
 ﻿using StudentManagement.Interfaces.IData;
 using StudentManagement.Models;
+using StudentManagement.Models.DapperModels;
 using StudentManagement.Utilities;
 using System;
 using System.Collections.Generic;
@@ -58,6 +59,22 @@ namespace StudentManagement.Data.Dapper
 
             string query = $"select *  from TBL_EnrolledCourses";
             return _dataDapperAccess.Query(query) ;
+        }
+
+        public List<CoursesRegistered> GetAllCoursesRegistered()
+        {
+
+            string query = "  SELECT ec.IDEnrolledCourses, se.*,su.NameSubject,su.Credits, su.CourseType,ec.StartDate, ec.EndDate\r\n    FROM TBL_Semester se\r\n    JOIN TBL_EnrolledCourses ec ON se.IDSemester = ec.IDSemester\r\n    JOIN TBL_Subject su ON su.IDSubject = ec.IDSubject";
+            SqlDataDapperAccess<CoursesRegistered> sqlDataCR = new SqlDataDapperAccess<CoursesRegistered>(_connectionString);
+            return sqlDataCR.Query(query);
+        }
+
+        public EnrolledCourseDetails GetEnrolledCourseDetails(int EnrolledCourseID)
+        {
+            string query = "SELECT * FROM GetEnrolledCourseDetails(@EnrolledCourseID)";
+            (string, object)[] para = { ("@EnrolledCourseID", EnrolledCourseID) };
+            SqlDataDapperAccess<EnrolledCourseDetails> sqlDataCR = new SqlDataDapperAccess<EnrolledCourseDetails>(_connectionString);
+            return sqlDataCR.Query(query, para).FirstOrDefault();
         }
 
         public bool Save()

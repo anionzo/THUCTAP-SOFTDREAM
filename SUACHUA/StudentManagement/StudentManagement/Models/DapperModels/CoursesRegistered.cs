@@ -10,6 +10,8 @@ namespace StudentManagement.Models
 {
     public class CoursesRegistered
     {
+
+
         [DisplayName("Mã Học Kỳ")]
         public int IDSemester { get; set; }
         [DisplayName("Học Kỳ")]
@@ -43,6 +45,8 @@ namespace StudentManagement.Models
         [DisplayName("Kết thúc")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime EndDate { get; set; }
+
+        public int IDEnrolledCourses { get; set;}
 
     }
 }

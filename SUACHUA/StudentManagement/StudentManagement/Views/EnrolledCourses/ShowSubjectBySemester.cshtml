@@ -11,7 +11,7 @@
 <table class="table table-hover">
     <thead class="table-info">
         <tr>
-            <th >STT</th>
+            <th>STT</th>
             <th>
                 @Html.DisplayNameFor(model => model.IDSemester)
             </th>
@@ -42,12 +42,13 @@
             <th></th>
         </tr>
     </thead>
-@{ 
-    int i = 0;
-}
-@foreach (var item in Model) {
-    <tbody>
-        <tr>
+    @{
+        int i = 0;
+    }
+<tbody>
+    @foreach (var item in Model)
+    {
+        <tr onclick="window.location.href='@Url.Action("GetEnrolledCourseDetails","EnrolledCourses", new {id = item.IDEnrolledCourses})'">
             <th>
                 @{ i++;}
                 @i
@@ -82,7 +83,7 @@
             <td>
             </td>
         </tr>
-    </tbody>
-}
+    }
 
+</tbody>
 </table>

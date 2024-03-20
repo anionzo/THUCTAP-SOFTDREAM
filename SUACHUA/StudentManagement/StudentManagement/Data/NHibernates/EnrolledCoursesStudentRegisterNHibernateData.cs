@@ -46,6 +46,11 @@ namespace StudentManagement.Data.NHibernates
             }
         }
 
+        public List<EnrolledCoursesStudentRegister> GetAll(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<CoursesRegistered> GetAllCoursesRegistered()
         {
             throw new NotImplementedException();

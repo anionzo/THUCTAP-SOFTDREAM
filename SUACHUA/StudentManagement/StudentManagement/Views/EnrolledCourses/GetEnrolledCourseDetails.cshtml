@@ -1,0 +1,82 @@
+﻿@model StudentManagement.Models.DapperModels.EnrolledCourseDetails
+
+@{
+    ViewBag.Title = "Nhập điểm sinh viên";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h4 class="text-center">Chi tiết môn</h4>
+    <hr />
+    <div class="row g-2">
+        <div class="col-3 bg-info-subtle p-4">
+            <div class="col-12">
+                Bộ môn:
+                <span> <b> @Html.DisplayFor(model => model.NameDepartment)</b> </span>
+            </div>
+            <div class="col-12">
+                Mã giảng viên:
+                <span> <b> @Html.DisplayFor(model => model.IDLecturer)</b> </span>
+            </div>
+            <div class="col-12">
+                Tên giảng viên:
+                <span> <b> @Html.DisplayFor(model => model.NameLecturer)</b> </span>
+            </div>
+            <div class="col-12">
+                Tên môn:
+                <span> <b> @Html.DisplayFor(model => model.NameSubject)</b> </span>
+            </div>
+            <div class="col-12">
+                Từ ngày <span> <b> @Html.DisplayFor(model => model.StartDate)</b> </span> đến <span> <b> @Html.DisplayFor(model => model.EndDate)</b>
+            </div>
+            <div class="col-12">
+                Lớp:
+                <span> <b> @Html.DisplayFor(model => model.ExpectedClass)</b> </span>
+            </div>
+            <div class="col-12">
+                Tín chỉ:
+                <span> <b> @Html.DisplayFor(model => model.Credits)</b> </span>
+            </div>
+            <div class="col-12">
+                Loại môn:
+                <span> <b> @Html.DisplayFor(model => model.CourseType)</b> </span>
+            </div>
+            @{
+                int mssv = 0;
+                if (Model != null)
+                {
+                    mssv = Model.IDEnrolledCourses != 0 ? Model.IDEnrolledCourses : 0;
+                }
+            }
+            <div class="col-12 p-5">
+                <div class="btn btn-primary" id="input-score" data-enrolledcourses-id="@Model.IDEnrolledCourses">Nhập điểm môn học</div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div id="show-score"></div>
+        </div>
+        <div class="col-3">
+            <div id="edit-score"></div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#input-score').click(function () {
+                var enrolledcoursesID = $(this).data('enrolledcourses-id');
+                $.ajax({
+                    url: '@Url.Action("GetALLEnrolledCoursesStudentRegister", "EnrolledCoursesStudentRegister", new { id = "__id__" })'.replace('__id__', enrolledcoursesID),
+                    type: 'GET',
+                    success: function (result) {
+                        $('#show-score').html(result);
+                    },
+                    error: function () {
+                        console.log('Đã xảy ra lỗi khi tải PartialView.');
+                    }
+                });
+            });
+        });
+    </script>
+}
