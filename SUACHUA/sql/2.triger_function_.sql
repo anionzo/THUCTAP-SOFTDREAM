@@ -37,7 +37,7 @@ RETURN (
 GO
 --SELECT * FROM GetEnrolledCourseInfoForStudent('SV001')
 
-CREATE FUNCTION GetSubjectFailPass(@StudentID int)
+CREATE FUNCTION GetSubjectFailPass(@StudentID nvarchar(30))
 RETURNS TABLE 
 AS
 RETURN (
