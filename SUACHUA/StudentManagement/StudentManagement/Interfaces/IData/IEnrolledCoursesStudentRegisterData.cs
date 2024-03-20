@@ -14,6 +14,7 @@ namespace StudentManagement.Interfaces.IData
     {
         DataTable GetListStudent_Fail_Pass(int IDEnrolledCourse);
         List<SubjectFailPass> GetSubjectFailPassList(string StudentID);
+        List<CoursesRegistered> GetAllCoursesRegistered();
 
     }
 }

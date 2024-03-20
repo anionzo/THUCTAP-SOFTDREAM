@@ -55,8 +55,6 @@ namespace StudentManagement
                 Component.For<IUniversityData>().ImplementedBy<UniversityDapperData>().DependsOn(Dependency.OnValue("connectionString", connectionString))
             );
 
-
-
             ///// Nhibernate
             //container.Register(Component.For<IStudentService>().ImplementedBy<StudentService>(),
             //  Component.For<IStudentData>().ImplementedBy<StudentNHibernateData>()

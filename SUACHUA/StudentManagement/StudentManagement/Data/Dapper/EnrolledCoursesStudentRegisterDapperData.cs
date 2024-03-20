@@ -66,6 +66,14 @@ namespace StudentManagement.Data.Dapper
 
         }
 
+        public List<CoursesRegistered> GetAllCoursesRegistered()
+        {
+            string query = "  SELECT se.*,su.NameSubject,su.Credits, su.CourseType,ec.StartDate, ec.EndDate\r\n    FROM TBL_Semester se\r\n    JOIN TBL_EnrolledCourses ec ON se.IDSemester = ec.IDSemester\r\n    JOIN TBL_Subject su ON su.IDSubject = ec.IDSubject";
+            SqlDataDapperAccess<CoursesRegistered> sqlDataCR = new SqlDataDapperAccess<CoursesRegistered>(_connectionString);
+            return sqlDataCR.Query(query);
+
+        }
+
         public DataTable GetListStudent_Fail_Pass(int IDEnrolledCourse)
         {
             //string query = $"select * from GetSubjectFailPass({IDEnrolledCourse})";

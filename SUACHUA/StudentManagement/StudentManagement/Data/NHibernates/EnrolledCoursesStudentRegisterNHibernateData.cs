@@ -46,6 +46,11 @@ namespace StudentManagement.Data.NHibernates
             }
         }
 
+        public List<CoursesRegistered> GetAllCoursesRegistered()
+        {
+            throw new NotImplementedException();
+        }
+
         public DataTable GetListStudent_Fail_Pass(int IDEnrolledCourse)
         {
 

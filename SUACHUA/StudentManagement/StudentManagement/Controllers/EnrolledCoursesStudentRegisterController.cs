@@ -1,5 +1,7 @@
 ﻿using StudentManagement.App_Start;
+using StudentManagement.Data;
 using StudentManagement.Interfaces.IServices;
+using StudentManagement.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,8 @@ namespace StudentManagement.Controllers
     {
 
         private readonly IEnrolledCoursesStudentRegisterService _service;
-        public EnrolledCoursesStudentRegisterController() {
+        public EnrolledCoursesStudentRegisterController()
+        {
             using (var container = BootstrapContainer.Bootstrap().Container)
             {
                 _service = container.Resolve<IEnrolledCoursesStudentRegisterService>();
@@ -25,6 +28,11 @@ namespace StudentManagement.Controllers
             var data = _service.GetSubjectFailPassList(id);
             return PartialView(data);
         }
-        public ActionResult ShowSubject() { return View(); }
+        public ActionResult ShowSubjectBySemester() {
+
+            var data = _service.GetAllCoursesRegistered();
+            return View(data); 
+        
+        }
     }
 }
