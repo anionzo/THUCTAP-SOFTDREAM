@@ -25,5 +25,6 @@ namespace StudentManagement.Controllers
             var data = _service.GetSubjectFailPassList(id);
             return PartialView(data);
         }
+        public ActionResult ShowSubject() { return View(); }
     }
 }

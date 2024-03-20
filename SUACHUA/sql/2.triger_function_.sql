@@ -36,6 +36,7 @@ RETURN (
 )
 GO
 --SELECT * FROM GetEnrolledCourseInfoForStudent('SV001')
+--DROP FUNCTION GetEnrolledCourseInfoForStudent
 
 CREATE FUNCTION GetSubjectFailPass(@StudentID nvarchar(30))
 RETURNS TABLE 
@@ -98,11 +99,32 @@ RETURN (
     JOIN TBL_Subject su ON su.IDSubject = ec.IDSubject
     JOIN TBL_Student st ON st.MSSV = esr.MSSV
     WHERE esr.MSSV = @StudentID AND se.IDSemester = @SemesterID
-)
-GO
-
+);
+go
 --        DROP FUNCTION dbo.GetCoursesRegistered
-
+----------------------------------------------
+CREATE FUNCTION GetEnrolledCourseDetails (@EnrolledCourseID INT)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT de.NameDepartment,
+           le.IDLecturer,
+           le.NameLecturer,
+           su.NameSubject,
+           ec.StartDate,
+           ec.EndDate,
+           ec.ExpectedClass,
+           su.Credits,
+           su.CourseType  
+    FROM TBL_EnrolledCourses ec
+    JOIN TBL_Subject su ON su.IDSubject = ec.IDSubject
+    JOIN TBL_Department de ON su.IDDepartment = de.IDDepartment
+    JOIN TBL_Lecturers le ON le.IDLecturer = ec.IDLecturer
+    WHERE ec.IDEnrolledCourses = @EnrolledCourseID
+);
+--        DROP FUNCTION GetEnrolledCourseDetails
+--       SELECT * FROM GetEnrolledCourseDetails(1);
 
 
 

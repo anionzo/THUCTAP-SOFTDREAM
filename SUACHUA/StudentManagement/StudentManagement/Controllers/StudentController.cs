@@ -48,22 +48,6 @@ namespace StudentManagement.Controllers
         {
             Student student = _studentService.Get(id);
             ViewBag.Student = student;
-
-            //var listSemester = _semesterService.GetAll();
-            //var list = new List<CoursesRegistered>();
-
-            //foreach (var item in listSemester)
-            //{
-            //    var count = _studentService.GetNumberSubjectRegister(item.IDSemester.ToString(), id.ToString());
-            //    if (count > 0)
-            //    {
-            //        var itemCoursesRegistered = _studentService.GetAllCoursesRegistered(item.IDSemester.ToString(), id.ToString());
-            //        list.AddRange(itemCoursesRegistered);
-            //    }
-            //}
-            //ViewBag.CoursesRegistereds = list;
-            //ViewBag.Count = list.Count;
-
             return View(student);
         }
         public ActionResult ShowListSubjectRegister(object id)
@@ -82,7 +66,6 @@ namespace StudentManagement.Controllers
             }
             ViewBag.Count = list.Count;
             ViewBag.CoursesRegistereds = list;
-
             return PartialView(list);
         }
     }

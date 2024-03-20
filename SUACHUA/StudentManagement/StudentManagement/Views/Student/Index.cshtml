@@ -28,22 +28,13 @@
             NameStudent
         </th>
         <th>
-            Day Admission
-        </th>
-        <th>
-            DateOfBirth
+            Ngày sinh
         </th>
         <th>
             Giới tính
         </th>
         <th>
-            Bằng Cấp
-        </th>
-        <th>
             SĐT
-        </th>
-        <th>
-            CCCD
         </th>
         <th>
             Dân tộc
@@ -52,13 +43,9 @@
             Tôn Giáo
         </th>
         <th>
-            Địa chỉ
-        </th>
-        <th>
             Trạng thái
         </th>
         <th>
-
         </th>
     </tr>
 
@@ -72,22 +59,13 @@
                 @item.NameStudenr
             </td>
             <td>
-                @item.DayAdmission.Date.ToShortDateString()
-            </td>
-            <td>
                 @item.DateOfBirth.Date.ToShortDateString()
             </td>
             <td>
                 @item.Gender
             </td>
             <td>
-                @item.Education
-            </td>
-            <td>
                 @item.PhoneNumber
-            </td>
-            <td>
-                @item.CCCD
             </td>
             <td>
                 @item.Ethnicity
@@ -96,16 +74,11 @@
                 @item.Religion
             </td>
             <td>
-                @item.PermanentAddress
-            </td>
-            <td>
                 @item.Status
-
             </td>
             <td>
                 <a style=" text-decoration: none; color: #428bca;" class='fa-solid fa-bars' href="@Url.Action("Details", "Student", new { id = item.MSSV })" >
                 </a>
-
             </td>
         </tr>
     }

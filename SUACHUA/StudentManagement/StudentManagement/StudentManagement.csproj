@@ -201,6 +201,7 @@
     <Compile Include="Interfaces\IServices\IUniversityService.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\DapperModels\CoursesRegistered.cs" />
+    <Compile Include="Models\DapperModels\EnrolledCourseDetails.cs" />
     <Compile Include="Models\DapperModels\EnrolledCourseInfoForStudent.cs" />
     <Compile Include="Models\DapperModels\StudentFailPass.cs" />
     <Compile Include="Models\DapperModels\SubjectFailPass.cs" />
