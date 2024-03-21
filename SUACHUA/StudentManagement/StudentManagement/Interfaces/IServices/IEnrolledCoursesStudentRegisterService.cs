@@ -17,7 +17,8 @@ namespace StudentManagement.Interfaces.IServices
         void Update(EnrolledCoursesStudentRegister emmt);
         List<CoursesRegistered> GetAllCoursesRegistered();
         List<EnrolledCoursesStudentRegister> GetAll(int id);
+        void Reset(int IDEnrolledCourse, string StudentID);
 
-       
+
     }
 }

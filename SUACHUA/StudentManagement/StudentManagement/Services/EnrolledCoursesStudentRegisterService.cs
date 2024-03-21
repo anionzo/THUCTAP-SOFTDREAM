@@ -45,6 +45,11 @@ namespace StudentManagement.Services
             return _enrolledCoursesStudentRegisterDapperData.GetSubjectFailPassList(StudentID);
         }
 
+        public void Reset(int IDEnrolledCourse, string StudentID)
+        {
+            _enrolledCoursesStudentRegisterDapperData.Reset(IDEnrolledCourse, StudentID);
+        }
+
         //public List<StudentFailPass> GetSubjectFailPassList(int IDEnrolledCourse)
         //{
         //    return _enrolledCoursesStudentRegisterDapperData.GetSubjectFailPassList(IDEnrolledCourse);

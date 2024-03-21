@@ -97,6 +97,11 @@ namespace StudentManagement.Data.NHibernates
             throw new NotImplementedException();
         }
 
+        public void Reset(int IDEnrolledCourse, string StudentID)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Save()
         {
             throw new NotImplementedException();

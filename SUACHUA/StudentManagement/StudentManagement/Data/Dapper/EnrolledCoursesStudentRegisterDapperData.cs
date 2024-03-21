@@ -107,6 +107,16 @@ namespace StudentManagement.Data.Dapper
             return sqlData.Query(query,parameters);
         }
 
+        public  void Reset(int IDEnrolledCourse, string StudentID)
+        {
+            string query = "UPDATE TBL_EnrolledCourses_Student_Register SET CourseWorkScore = @CourseWorkScore, ExamScore= @ExamScore WHERE MSSV = @MSSV AND IDEnrolledCourses = @IDEnrolledCourses";
+            (string, object)[] parameters = { ("@CourseWorkScore", null),
+                                              ("@ExamScore", null),
+                                              ("@MSSV", StudentID),
+                                              ("@IDEnrolledCourses", IDEnrolledCourse) };
+            var result = _dataDapperAccess.Excute(query, parameters);
+        }
+
         public bool Save()
         {
             throw new NotImplementedException();
@@ -121,7 +131,7 @@ namespace StudentManagement.Data.Dapper
             //                                  ("@IDEnrolledCourses", entity.IDEnrolledCourses) };
             //var result = _dataAccess.ExecuteNonQuery(query,parameters);
             //return result;
-
+            
             string query = "UPDATE TBL_EnrolledCourses_Student_Register SET CourseWorkScore = @CourseWorkScore, ExamScore= @ExamScore WHERE MSSV = @MSSV AND IDEnrolledCourses = @IDEnrolledCourses";
             (string, object)[] parameters = { ("@CourseWorkScore", entity.CourseWorkScore),
                                               ("@ExamScore", entity.ExamScore),

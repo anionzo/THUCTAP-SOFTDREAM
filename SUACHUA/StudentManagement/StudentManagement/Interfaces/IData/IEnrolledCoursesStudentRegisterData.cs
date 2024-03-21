@@ -16,5 +16,6 @@ namespace StudentManagement.Interfaces.IData
         List<SubjectFailPass> GetSubjectFailPassList(string StudentID);
         List<CoursesRegistered> GetAllCoursesRegistered();
         List<EnrolledCoursesStudentRegister> GetAll(int id);
+        void Reset(int IDEnrolledCourse, string StudentID);
     }
 }

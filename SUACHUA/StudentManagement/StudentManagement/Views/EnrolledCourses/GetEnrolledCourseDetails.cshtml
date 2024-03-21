@@ -61,7 +61,7 @@
 @section Scripts {
     <script>
         function setEvent() {
-            console.log("vô")
+            console.log("vô setEvent")
             $('.btn-edit-score').click(function () {
                 console.log("vô è")
                 var enrolledcoursesID = $(this).data('enrolled-id');
@@ -69,6 +69,18 @@
                 $("#edit-score").load('@Url.Action("EditScore", "EnrolledCoursesStudentRegister")' + '?id=' + enrolledcoursesID + '&mssv=' + mssv)
             });
         }
+        function resetEnrolledCourse(EnrolledcoursesID, StudenID) {
+            console.log("vô resetEnrolledCourse")
+
+            $.post('@Url.Action("Reset", "EnrolledCoursesStudentRegister")', { id: EnrolledcoursesID, mssv: StudenID })
+                  .done(function(data) {
+                      window.location.reload();
+                  })
+                  .fail(function() {
+                      // Xử lý lỗi nếu có
+                  });
+        }
+
         $(document).ready(function () {
             $('#input-score').click(function () {
                 var enrolledcoursesID = $(this).data('enrolledcourses-id');

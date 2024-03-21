@@ -60,5 +60,19 @@ namespace StudentManagement.Controllers
                 return PartialView(emty);
             }
         }
+        [HttpPost]
+        public ActionResult  Reset(int id, string mssv)
+        {
+            try
+            {
+                _service.Reset(id, mssv);
+                return RedirectToAction("GetEnrolledCourseDetails", "EnrolledCourses", new { id = id });
+
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
+        }
     }
 }
