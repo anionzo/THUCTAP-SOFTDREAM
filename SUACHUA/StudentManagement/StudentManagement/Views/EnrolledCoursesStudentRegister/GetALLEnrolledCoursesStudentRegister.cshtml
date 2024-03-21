@@ -1,46 +1,57 @@
 ﻿@model IEnumerable<StudentManagement.Models.EnrolledCoursesStudentRegister>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MSSV)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IDEnrolledCourses)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CourseWorkScore)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ExamScore)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalScore)
-        </th>
-        <th></th>
-    </tr>
+<div class="row">
+    <div class="col-8">
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MSSV)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IDEnrolledCourses)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CourseWorkScore)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExamScore)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalScore)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "EditScore", new { id = item.IDEnrolledCourses, mssv = item.MSSV })
-            </td>
-        </tr>
-    }
-</table>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.MSSV)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IDEnrolledCourses)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CourseWorkScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ExamScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalScore)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MSSV)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IDEnrolledCourses)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CourseWorkScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ExamScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalScore)
+                    </td>
+                    <td>
+                        <div class="btn btn-outline-info btn-edit-score" data-enrolled-id="@item.IDEnrolledCourses" data-mssv-id="@item.MSSV">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="col-4">
+        <div id="edit-score">
+        </div>
+    </div>
+</div>

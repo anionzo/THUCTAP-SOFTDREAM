@@ -108,7 +108,8 @@ RETURNS TABLE
 AS
 RETURN
 (
-    SELECT de.NameDepartment,
+    SELECT ec.IDEnrolledCourses,
+		   de.NameDepartment,
            le.IDLecturer,
            le.NameLecturer,
            su.NameSubject,

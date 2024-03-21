@@ -44,7 +44,7 @@ namespace StudentManagement.Controllers
         public ActionResult EditScore(int id, string mssv)
         {
             var data = _service.GetAll(id).Where(x => x.MSSV.Equals(mssv)).FirstOrDefault();
-            return View(data);
+            return PartialView(data);
         }
         [HttpPost]
         public ActionResult EditScore(EnrolledCoursesStudentRegister emty)
@@ -57,7 +57,7 @@ namespace StudentManagement.Controllers
             }
             catch (Exception ex)
             {
-                return View(emty);
+                return PartialView(emty);
             }
         }
     }

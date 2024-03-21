@@ -52,17 +52,23 @@
                 <div class="btn btn-primary" id="input-score" data-enrolledcourses-id="@Model.IDEnrolledCourses">Nhập điểm môn học</div>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-9">
             <div id="show-score"></div>
-        </div>
-        <div class="col-3">
-            <div id="edit-score"></div>
         </div>
     </div>
 </div>
 
 @section Scripts {
     <script>
+        function setEvent() {
+            console.log("vô")
+            $('.btn-edit-score').click(function () {
+                console.log("vô è")
+                var enrolledcoursesID = $(this).data('enrolled-id');
+                var mssv = $(this).data('mssv-id');
+                $("#edit-score").load('@Url.Action("EditScore", "EnrolledCoursesStudentRegister")' + '?id=' + enrolledcoursesID + '&mssv=' + mssv)
+            });
+        }
         $(document).ready(function () {
             $('#input-score').click(function () {
                 var enrolledcoursesID = $(this).data('enrolledcourses-id');
@@ -71,12 +77,14 @@
                     type: 'GET',
                     success: function (result) {
                         $('#show-score').html(result);
+                        setEvent();
                     },
                     error: function () {
                         console.log('Đã xảy ra lỗi khi tải PartialView.');
                     }
                 });
             });
+
         });
     </script>
 }
