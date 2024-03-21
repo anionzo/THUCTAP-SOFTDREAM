@@ -25,6 +25,17 @@
 
             @foreach (var item in Model)
             {
+                bool result = true;
+                if (item.TotalScore == 0 && item.CourseWorkScore == 0 && item.ExamScore == 0) {
+                    result = false;
+                }
+
+                else if(item.TotalScore == 0 && (item.CourseWorkScore == 0 ||  item.ExamScore == 0))
+                {
+                    result = false;
+                }
+
+
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.MSSV)
@@ -33,13 +44,13 @@
                         @Html.DisplayFor(modelItem => item.IDEnrolledCourses)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.CourseWorkScore)
+                        @(result == false && item.CourseWorkScore == 0 ? "-" :item.CourseWorkScore )
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ExamScore)
+                        @(result == false && item.ExamScore == 0 ? "-" : item.ExamScore )
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.TotalScore)
+                        @(result == false && item.TotalScore == 0 ? "-" : item.TotalScore )
                     </td>
                     <td>
                         <div class="btn btn-outline-info btn-edit-score" data-enrolled-id="@item.IDEnrolledCourses" data-mssv-id="@item.MSSV">
